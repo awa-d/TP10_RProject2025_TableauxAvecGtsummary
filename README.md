@@ -1,6 +1,5 @@
 # TP10_RProject2025_TableauxAvecGtsummary
 
-# TP10_RProject_Gtsummary
 Theme 9: Tableaux avec gtsummary
 
 Ce projet fait partie du cours de projet statistique avec R dispensé par M. Aboubacar HEMA, et est réalisé par Awa DIAW (ISE1 CL) et RASAMOELINA Nihaviana Albert Paulinah (ISE Eco). Ce ripository contiendra l'ensemble des éléments du projet. Le projet se concentre sur l'utilisation du package gtsummary. 
