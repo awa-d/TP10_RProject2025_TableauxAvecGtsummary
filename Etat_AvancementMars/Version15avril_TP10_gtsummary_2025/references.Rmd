@@ -1,0 +1,23 @@
+---
+title: ""
+author: "Awa D"
+date: "24/03/2025"
+output: html_document
+---
+
+# 📚 Références 
+
+La rédaction de ce bookdown sur `gtsummary` s'appuie sur plusieurs ressources officielles et tutoriels détaillés.  
+
+### Documentation officielle et tutoriels  
+- [Documentation complète de gtsummary (CRAN)](https://cran.r-project.org/web/packages/gtsummary/gtsummary.pdf)  
+- [Guide d’utilisation de `tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html)  
+- [Utilisation de gtsummary dans R Markdown](https://www.danieldsjoberg.com/gtsummary/articles/rmarkdown.html)  
+
+### Autres ressources utiles 
+- [Analyse de données avec gtsummary](https://larmarange.github.io/analyse-R/gtsummary.html)  
+- [Présentation du package sur le blog de RStudio](https://education.rstudio.com/blog/2020/07/gtsummary/)  
+- [Dépôt GitHub officiel de gtsummary](https://github.com/ddsjoberg/gtsummary)
+
+
+<!-----------------------------------------FIN DE SCRIPT REFERENCES---------------------------------------------->

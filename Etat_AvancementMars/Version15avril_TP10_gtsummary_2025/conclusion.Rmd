@@ -1,0 +1,27 @@
+---
+title: ""
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+
+# 📑 Conclusion
+
+Le package gtsummary s’impose comme un outil incontournable pour la création de tableaux de synthèse statistiques en R.  
+Son intégration fluide avec le tidyverse et son large éventail de fonctions de personnalisation en font un choix idéal pour produire des rapports clairs, lisibles et adaptés aux exigences des publications scientifiques.  
+
+Synthèse des points abordés
+Dans cette présentation, nous avons exploré :  
+- Les fonctionnalités principales de `gtsummary`.  
+- Ses applications pratiques à travers des exemples concrets.  
+
+Grâce à ce package, les utilisateurs peuvent automatiser et standardiser la présentation de leurs analyses, tout en garantissant une interprétation efficace des résultats.  
+En maîtrisant ses principales fonctions et paramètres, il devient possible d’améliorer considérablement la lisibilité des tableaux tout en optimisant le temps de production des rapports.
+
+Perspectives
+Ce travail pourrait être enrichi par l’exploration des modèles statistiques dans `gtsummary`.
+
+Ces perspectives permettraient d’aller plus loin en appliquant `gtsummary` non seulement aux descriptions de données, mais aussi aux modèles d’analyse avancés.  
+
+
+<!---------------------------------------FIN DE SCRIPT - CONCLUSION-------------------------------------------->
