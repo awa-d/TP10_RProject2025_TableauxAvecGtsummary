@@ -9,7 +9,7 @@ Ce projet fait partie du cours de projet statistique avec R dispensé par M. Abo
 
 Introduction (le package en tant que tel)
   1.	Les différentes fonctions de gtsumary et leurs paramètres
-  2.	Applications pratiques
+  2.	Application pratique
      
 Conclusion
 
@@ -31,7 +31,7 @@ https://github.com/ddsjoberg/gtsummary)
 
 
 
-# Rendu final : un bookdown et un beamer
+# Rendu final : un bookdown
 ## Structure du bookdown
 mon_livre/
 
