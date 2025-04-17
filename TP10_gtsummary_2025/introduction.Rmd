@@ -1,0 +1,35 @@
+---
+title: ""
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+# 📘 Introduction générale
+
+La fonction tbl_summary() calcule des statistiques descriptives pour les variables continues, catégorielles et dichotomiques dans R, et présente les résultats dans un tableau de synthèse attrayant et personnalisable, prêt à être publié.
+
+Ce bookdown guide le lecteur à travers la fonction `tbl_summary()` et nous y verrons :
+
+- Une introduction aux fonctions clés de `gtsummary` ainsi que leurs paramètres.
+
+- Un cas pratique illustrant son utilisation.
+
+Avant de commencer, installez et chargez le package {gtsummary}.
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("gtsummary")
+library(gtsummary)
+```
+
+Vous pouvez déjà importer votre jeu de données...
+
+```{r, echo=TRUE, eval=FALSE}
+
+# IMPORTATION DE NOTRE JEU DE DONNEES
+library(readr)
+dataset <- read_csv("data/ehcvm_welfare_2b_bfa2021.csv")
+```
+
+
+
+<!---------------------------------------FIN DE SCRIPT - INTRODUCTION-------------------------------------------->

@@ -1,0 +1,417 @@
+---
+title: " "
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+
+# 📖 Chapitre II. Applications pratiques
+
+## 0. Consigne
+
+### Projet :
+Évaluation des politiques de transfert monétaire sur la pauvreté et les inégalités au Burkina Faso, à l’aide des données de l’EHCVM 2021.
+
+### Scénarios simulés :
+- Scénario 1 : Transfert universel — Tous les ménages reçoivent une allocation annuelle de 100 000 CFA.
+- Scénario 2 : Transfert universel rural — Seuls les ménages ruraux reçoivent l’allocation.
+- Scénario 3 : Chef de ménage femme — Transfert ciblé aux ménages dirigés par une femme.
+- Scénario 4 : Chef polygame — Transfert aux ménages dont le chef est polygame.
+- Scénario 5 : Handicap — Transfert aux ménages comprenant au moins un membre en situation de handicap.
+
+
+
+## 1. Chargement des packages nécessaires et des données EHCVM 2021 du Burkina Faso
+
+####  Objectif
+
+Utiliser le package `gtsummary` pour explorer, résumer et mieux comprendre les variables clés.
+
+#### Variables importantes
+
+| Variable | Description |
+|---------|-------------|
+| `pcexp` | Dépense par tête (proxy du revenu) |
+| `hhsize` | Taille du ménage |
+| `milieu` | Milieu de résidence (`urbain` ou `rural`) |
+| `hmstat` | Statut matrimonial du chef de ménage |
+| `hgender` | Sexe du chef de ménage |
+| `zref` | Seuil de pauvreté national |
+| `hhandig` | Présence ou non d'handicapés dans le ménage |
+
+#### Préparation des données
+
+Commençons par charger les bibliothèques nécessaires
+
+```{r}
+# Chargement des packages nécessaires à l’analyse
+# (Ils seront installés automatiquement s'ils ne sont pas présents)
+
+# Liste des packages
+packages <- c(
+  "readr",      # Pour lire les fichiers de données (CSV, etc.)
+  "dplyr", # Pour manipuler les données (filtrer, grouper, résumer, etc.)
+  "gtsummary",  # Pour créer des tableaux statistiques descriptifs professionnels
+  "flextable",  # Pour formater/exporter des tableaux (Word, PPT, HTML)
+  "gt",         # Pour créer des tableaux visuels modernes et interactifs
+  "ggplot2",    # Pour réaliser des graphiques personnalisés
+  "tidyr", #organiser et transformer les données en un format “tidy”, c’est-à-dire 
+  # Chaque variable dans une colonne, chaque observation dans une ligne, chaque valeur dans une cellule.
+  "ineq",       # Pour mesurer les inégalités (ex. : coefficient de Gini)
+  "kableExtra",  # Pour améliorer les tableaux `knitr::kable()` dans les rapports
+  "officer" # Sauvegarder des tableaux gtsummary en word
+)
+
+# Fonction pour installer les packages manquants
+install_if_missing <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg)
+  }
+}
+
+# Installation au besoin
+invisible(lapply(packages, install_if_missing))
+
+# Chargement des packages
+lapply(packages, library, character.only = TRUE)
+```
+
+#### Lecture du fichier
+
+```{r, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE, results='hide'}
+library(readr)
+
+# Chargement du jeu de données EHCVM
+dataset <- read_csv("data/ehcvm_welfare_2b_bfa2021.csv")
+vars_interet <- c("hhid", "milieu", "pcexp","hmstat", "hhsize","hhandig", "hgender", "zref")
+datasetapp <- dataset %>% 
+  select(all_of(vars_interet))
+```
+
+## 2. Exploration préliminaire
+#### Aperçu des premières lignes
+
+```{r, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+head(datasetapp)
+str(datasetapp)
+```
+
+#### Dimensions de la base
+```{r, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+dim(datasetapp)
+```
+#### Vérification de la qualité des données
+```{r, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+# Pourcentage de valeurs manquantes
+missing_data <- colSums(is.na(datasetapp)) / nrow(datasetapp) * 100
+# Filtre
+missing_data <- missing_data[missing_data > 0]
+
+# Affichage
+if (length(missing_data) == 0) {
+  cat("✅ Il n'y a pas de valeurs manquantes dans le dataset.\n")
+} else {
+  cat("❌ Pourcentage de valeurs manquantes par variable :\n")
+  print(missing_data)
+}
+
+```
+
+```{r, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+# Nombre de doublons
+duplicate_count <- nrow(datasetapp[duplicated(datasetapp), ])
+if (duplicate_count == 0) {
+  cat("✅ Il n'y a pas de doublons dans le dataset.\n")
+} else {
+  cat("❌ Il y a", duplicate_count, "doublon(s) dans le dataset.\n")
+}
+```
+
+
+## 3. Proposition de correction du projet
+
+Évaluation des politiques de transfert monétaire sur la pauvreté et les inégalités au Burkina Faso
+
+### Introduction
+
+Les programmes de transfert monétaire constituent une approche de protection sociale de pour lutter contre la pauvreté.
+
+### Méthodologie
+
+#### Analyse descriptive avec gtsummary
+
+- Tableau récapitulatif général
+
+```{r}
+set_gtsummary_theme(theme_gtsummary_compact())  # Appliquer le thème 'compact'
+
+# Tableau récapitulatif avec tbl_summary() pour toutes les variables
+tableau_general <- datasetapp %>%
+  tbl_summary(
+    statistic = list(
+      all_continuous() ~ "{mean} ({sd})",
+      all_categorical() ~ "{n} ({p}%)"
+    ),
+    digits = list(all_continuous() ~ 1),
+    label = list(
+      pcexp ~ "Dépense par tête",
+      hhsize ~ "Taille du ménage",
+      milieu ~ "Milieu de résidence",
+      hmstat ~ "Statut matrimonial",
+      hgender ~ "Sexe du chef de ménage",
+      zref ~ "Seuil de pauvreté",
+      hhandig ~ "Présence de handicapés"
+    ),
+    missing_text = "Données manquantes"
+  ) %>%
+  add_n() %>%  # Ajouter le nombre d'observations
+  bold_labels() %>%  # Mettre les étiquettes en gras
+  italicize_levels() %>% # Mettre les niveaux en italique
+  modify_caption("**Tableau 1. Caractéristiques des ménages burkinabè (EHCVM 2021)**")
+
+# Affichage du tableau
+tableau_general
+```
+
+#### Situation avant les simulations
+
+```{r,echo=T,eval=T}
+# Définition du seuil de pauvreté (zref)
+# Création de variables pour l'analyse de la pauvreté
+data_baseline <- datasetapp %>%
+  mutate(
+    pauvre = pcexp < zref,
+    gap = ifelse(pauvre, zref - pcexp, 0),
+    gap_normalise = gap / zref,
+    gap_normalise_carre = gap_normalise^2
+  )
+
+# Calcul des indices FGT initiaux
+fgt0_initial <- sum(data_baseline$pauvre * data_baseline$hhsize) / sum(data_baseline$hhsize)
+fgt1_initial <- sum(data_baseline$gap_normalise * data_baseline$hhsize) / sum(data_baseline$hhsize)
+fgt2_initial <- sum(data_baseline$gap_normalise_carre * data_baseline$hhsize) / sum(data_baseline$hhsize)
+
+# Calcul du coefficient de Gini initial
+gini_initial <- ineq(data_baseline$pcexp, type = "Gini")
+
+# Affichage des indices initiaux
+indices_initiaux <- data.frame(
+  Indicateur = c("Incidence (FGT0)initial", "Profondeur (FGT1)initial", "Sévérité (FGT2)initial", "Giniinitial"),
+  Valeur = c(fgt0_initial, fgt1_initial, fgt2_initial, gini_initial)
+)
+```
+
+*Remarque sur la présentation du tableau précédent*
+
+Le tableau précédent a été présenté sous forme de dataframe car `gtsummary` n’est pas spécifiquement conçu pour afficher des tableaux déjà calculés ligne par ligne. En effet, gtsummary est principalement destiné à résumer des données brutes, notamment via des statistiques descriptives ou des analyses bivariées.
+
+Ainsi, si l'on souhaite présenter de manière élégante des résultats déjà agrégés (tels que des indices FGT ou un coefficient de Gini), il est souvent préférable d’utiliser des packages comme gt() ou flextable(), qui sont plus adaptés à ce type de mise en forme.
+
+```{r gtsummaisationdedataframes,echo=FALSE,eval=T}
+indices_gt <- indices_initiaux %>%
+  gt() %>%
+  tab_header(
+    title = md("**Tableau – Indices de pauvreté et d'inégalités (Scénario de base)**")
+  ) %>%
+  cols_label(
+    Indicateur = "Indicateur",
+    Valeur = "Valeur"
+  ) %>%
+  fmt_number(
+    columns = "Valeur",
+    decimals = 3
+  )
+
+indices_gt
+```
+
+#### Résultats des simulations
+
+```{r,echo=FALSE,eval=T}
+#library(ineq)
+# Montant du transfert par ménage (annuel)
+montant_transfert <- 100000
+
+# Fonction pour simuler un transfert et calculer les indices
+simuler_transfert <- function(dataset, condition, nom_scenario) {
+  
+  data_sim <- dataset %>%
+    mutate(
+      beneficiaire = condition,
+      transfert = ifelse(beneficiaire, montant_transfert / hhsize, 0),
+      pcexp_new = pcexp + transfert,
+      pauvre_new = pcexp_new < zref,
+      gap_new = ifelse(pauvre_new, zref - pcexp_new, 0),
+      gap_normalise_new = gap_new / zref,
+      gap_normalise_carre_new = gap_normalise_new^2
+    )
+  
+  # Calcul des indices FGT post-transfert
+  fgt0_new <- sum(data_sim$pauvre_new * data_sim$hhsize) / sum(data_sim$hhsize)
+  fgt1_new <- sum(data_sim$gap_normalise_new * data_sim$hhsize) / sum(data_sim$hhsize)
+  fgt2_new <- sum(data_sim$gap_normalise_carre_new * data_sim$hhsize) / sum(data_sim$hhsize)
+  
+  # Coefficient de Gini post-transfert
+  gini_new <- ineq(data_sim$pcexp_new, type = "Gini")
+  
+  # Coût total du programme
+  cout_total <- sum(data_sim$transfert * data_sim$hhsize)
+  
+  # Réduction du gap de pauvreté
+  efficacite <- sum((dataset$gap - data_sim$gap_new) * data_sim$hhsize) / cout_total
+  
+  return(list(
+    scenario = nom_scenario,
+    fgt0 = fgt0_new,
+    fgt1 = fgt1_new,
+    fgt2 = fgt2_new,
+    gini = gini_new,
+    cout = cout_total,
+    efficacite = efficacite,
+    data = data_sim
+  ))
+}
+
+# Lancement des différents scénarios
+scenario1 <- simuler_transfert(data_baseline, TRUE, "Universel")
+scenario2 <- simuler_transfert(data_baseline, data_baseline$milieu == "Rural", "Rural")
+scenario3 <- simuler_transfert(data_baseline, data_baseline$hgender == "Féminin", "Femme chef")
+scenario4 <- simuler_transfert(data_baseline, data_baseline$hmstat == "Marié(e) polygame", "Polygames")
+scenario5 <- simuler_transfert(data_baseline, data_baseline$hhandig == "Oui", "Handicap")
+```
+
+```{r,echo=FALSE}
+# Regrouper les résultats des 5 scénarios dans un tableau
+resultats <- tibble::tibble(
+  Scénario = c(
+    scenario1$scenario, scenario2$scenario, scenario3$scenario, scenario4$scenario, scenario5$scenario
+  ),
+  `FGT0 (Incidence)` = c(
+    scenario1$fgt0, scenario2$fgt0, scenario3$fgt0, scenario4$fgt0, scenario5$fgt0
+  ),
+  `FGT1 (Profondeur)` = c(
+    scenario1$fgt1, scenario2$fgt1, scenario3$fgt1, scenario4$fgt1, scenario5$fgt1
+  ),
+  `FGT2 (Sévérité)` = c(
+    scenario1$fgt2, scenario2$fgt2, scenario3$fgt2, scenario4$fgt2, scenario5$fgt2
+  ),
+  `Gini` = c(
+    scenario1$gini, scenario2$gini, scenario3$gini, scenario4$gini, scenario5$gini
+  ),
+  `Coût total (FCFA)` = c(
+    scenario1$cout, scenario2$cout, scenario3$cout, scenario4$cout, scenario5$cout
+  ),
+  `Efficacité` = c(
+    scenario1$efficacite, scenario2$efficacite, scenario3$efficacite, scenario4$efficacite, scenario5$efficacite
+  )
+)
+```
+
+
+*Tableau comparatif des scénarios avec l'option 1 : gt()*
+
+```{r, echo=FALSE}
+#library(gt)
+
+resultats_gt <- resultats %>%
+  gt() %>%
+  tab_header(
+    title = "Comparaison des scénarios de transfert monétaire",
+    subtitle = "Impact sur la pauvreté et les inégalités"
+  ) %>%
+  fmt_percent(columns = starts_with("FGT"), decimals = 1) %>%
+  fmt_currency(columns = `Coût total (FCFA)`, currency = "XOF") %>%
+  fmt_number(columns = Efficacité, decimals = 3)
+
+resultats_gt
+#gt::gtsave(resultats_gt, filename = "Comparaison_des_scénarios_gt.html")
+```
+
+*Tableau comparatif des scénarios avec l'option 2 : flextable()*
+
+```{r, echo=FALSE}
+#library(flextable)
+
+resultats_flex <- flextable(resultats) %>%
+  autofit() %>%
+  set_caption("Comparaison des scénarios de transfert monétaire") 
+
+resultats_flex
+#flextable::save_as_html(resultats_flex, path = "Comparaison_des_scenarios_flextable.html") # HTML
+#flextable::save_as_docx(resultats_flex, path = "Comparaison_des_scenarios_flextable.docx") #en word
+```
+
+Bien que les tableaux permettent une présentation rigoureuse et détaillée des résultats, ils peuvent parfois rendre l’interprétation moins intuitive, surtout pour des publics non spécialisés. Ainsi, afin de mieux visualiser l’impact des différentes politiques de transfert et faciliter la comparaison entre scénarios, des représentations graphiques ont été ajoutées dans la suite.
+Ces graphiques offrent une lecture plus directe et synthétique des principaux résultats, tout en conservant la robustesse analytique présentée dans les tableaux précédents.
+
+#### Comparaison des différents scénarios
+```{r,echo=FALSE,eval=T}
+#library(ggplot2)
+#library(tidyr)
+
+# Regrouper les résultats dans un format long pour faciliter la création de graphiques
+resultats_long <- resultats %>%
+  pivot_longer(cols = c(`FGT0 (Incidence)`, `FGT1 (Profondeur)`, `FGT2 (Sévérité)`, `Gini`, `Coût total (FCFA)`, `Efficacité`),
+               names_to = "Indicateur", values_to = "Valeur")
+
+# Créer un graphique pour chaque indicateur
+ggplot(resultats_long, aes(x = Scénario, y = Valeur, fill = Scénario)) +
+  geom_bar(stat = "identity", position = "dodge") + #dodge : pas empilées (stack), mais placées côte à côte 
+  facet_wrap(~ Indicateur, scales = "free_y") +
+  theme_minimal() +
+  labs(title = "Comparaison des Scénarios selon différents Indicateurs",
+       x = "Scénario",
+       y = "Valeur") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Set3")
+```
+
+#### Conclusion
+
+L'analyse comparative des différents scénarios de transfert monétaire à l'aide du package `gtsummary` nous a permis d'obtenir des résultats clairs et bien présentés. Les principales conclusions sont :
+
+- Le ciblage universel est le plus efficace en termes d’impact brut avec une forte réduction de la pauvreté FGT0 : 0.354 (vs 0.390), FGT1 : 0.099, FGT2 : 0.038, Gini : 0.395,mais cela se fait au prix du coût le plus élevé : 717 600 000 FCFA, pour une efficacité modérée (27.95 %).
+
+- Le ciblage polygame est le plus efficient (Efficacité : 42.96 %, coût : 157 200 000 FCFA),avec une réduction notable des indices  (FGT1 : 0.110 vs 0.116, FGT2 : 0.044).
+
+- Le ciblage rural constitue une stratégie équilibrée avec un impact significatif (FGT1 : 0.103), un coût raisonnable : 383 800 000 FCFA et bonne efficacité : 39.29 %.
+
+Des scénarios combinés comme rural + femme chef ou polygame + présence d'handicapés pourraient permettre une réduction significative de la pauvreté à moindre coût, tout en assurant une meilleure ciblage des plus vulnérables.
+
+
+### Annexe : Définitions et formules
+
+Indices FGT (Foster-Greer-Thorbecke) :
+
+- FGT0 (Incidence) : Proportion de la population vivant sous le seuil de pauvreté
+
+$$FGT_0 = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}(pcexp_i < z)$$
+- FGT1 (Profondeur) : Écart moyen normalisé entre le revenu des pauvres et le seuil de pauvreté
+
+$$FGT_1 = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{z - pcexp_i}{z} \right) \mathbf{1}(pcexp_i < z)$$
+
+- FGT2 (Sévérité) : Moyenne des carrés des écarts normalisés, donnant plus de poids aux plus pauvres
+
+$$FGT_2 = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{z - pcexp_i}{z} \right)^2 \mathbf{1}(pcexp_i < z)$$
+
+Coefficient de Gini : Mesure de l'inégalité de la distribution des revenus au sein d'une hhsizeulation (0 = égalité parfaite, 1 = inégalité maximale)
+
+$$G = \frac{\sum_{i=1}^{N} \sum_{j=1}^{N} |pcexp_i - pcexp_j|}{2 N^2 \bar{pcexp}}$$
+
+où :  
+
+- $N$ est la population totale,  
+
+- $pcexp_i$ est la dépense de consommation par tête du ménage $\( i \)$,  
+
+- $z$ est le seuil de pauvreté,  
+
+- $\mathbf{1}(pcexp_i < z)$ est une fonction indicatrice qui vaut 1 si $pcexp_i < z$, sinon 0,  
+
+- $\bar{pcexp}$ est la moyenne des dépenses de consommation par tête.
+
+- Efficacité du transfert : Ratio entre la réduction du gap de pauvreté et le coût total du programme de transfert
+
+
+
+<!-------------------------------------------FIN DE SCRIPT - Chapitre 2------------------------------------->
