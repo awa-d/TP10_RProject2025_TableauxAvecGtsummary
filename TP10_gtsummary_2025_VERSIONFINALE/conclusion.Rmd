@@ -1,0 +1,32 @@
+---
+title: ""
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+
+# 📑 Conclusion générale
+
+Ce projet visait à explorer les possibilités offertes par le package **gtsummary** dans la production de tableaux statistiques professionnels et reproductibles.
+
+Le package *gtsummary* s’est révélé être un outil robuste et convivial, permettant notamment :
+
+- La création de tableaux descriptifs clairs via `tbl_summary()`, facilitant une première exploration des données ;
+
+- La comparaison de sous-populations grâce à l’argument `by=`, utile pour mettre en évidence les inégalités selon le milieu, le genre, etc. ;
+
+- L’organisation cohérente de plusieurs tableaux à l’aide des fonctions `tbl_merge()` et `tbl_stack()`;
+
+- L’amélioration de la lisibilité avec des thèmes personnalisables (par exemple `theme_gtsummary_journal()`) ;
+
+- L’exportation souple vers différents formats de rapports (Word, HTML, etc.) via `as_flex_table()` ou `as_gt()`.
+
+Par ailleurs, pour pallier certaines limites dans la présentation des résultats déjà agrégés, des packages complémentaires comme **gt** ou **flextable** ont été mobilisés, tout comme **ggplot2** pour illustrer visuellement les effets des scénarios simulés.
+
+
+Au-delà de la simple description, **gtsummary** peut également être intégré à une analyse plus poussée, notamment dans la présentation des résultats de modèles statistiques (régressions linéaires/logistiques, modèles mixtes, etc.) avec `tbl_regression()` ;
+
+En somme, ce projet illustre comment un outil bien pensé comme **gtsummary**, combiné à d'autres packages du tidyverse, peut significativement améliorer la rigueur, la transparence et l’esthétique des analyses statistiques.
+
+
+<!---------------------------------------FIN DE SCRIPT - CONCLUSION-------------------------------------------->

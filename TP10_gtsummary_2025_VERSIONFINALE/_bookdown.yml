@@ -1,0 +1,15 @@
+############## LA OU ON DEFINIT LE CONTENU DE NOTRE LIVRE. QUELS CHAPITRES PRENDRE?######################
+
+book_filename: "GTSUMMARYBook"
+delete_merged_file: true
+output_dir: "outputs"
+
+rmd_files:
+  - pdg.Rmd #Page de garde
+  - decharge.Rmd  #Decharge
+  - apropos.Rmd
+  - introduction.Rmd        # Introduction
+  - chapitre1.Rmd # Chapitre 1
+  - chapitre2.Rmd # Chapitre 2
+  - conclusion.Rmd   # Conclusion
+  - references.Rmd   # Références
