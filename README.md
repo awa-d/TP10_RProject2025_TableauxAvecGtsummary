@@ -2,18 +2,14 @@
 
 Theme 9: Tableaux avec gtsummary
 
-Ce projet fait partie du cours de projet statistique avec R dispensé par M. Aboubacar HEMA, et est réalisé par Awa DIAW (ISE1 CL) et RASAMOELINA Nihaviana Albert Paulinah (ISE Eco). Ce ripository contiendra l'ensemble des éléments du projet. Le projet se concentre sur l'utilisation du package gtsummary. 
+Ce projet s'inscrit dans le cadre du cours de projet statistique avec R dispensé par *M. Aboubacar HEMA* https://github.com/Abson-dev, et est réalisé par Awa DIAW (ISE1 CL) et RASAMOELINA Nihaviana Albert Paulinah (ISE Eco).
+Le présent repository contient l’ensemble des éléments du projet, centré sur l’exploitation du package gtsummary, un outil puissant pour la création de tableaux statistiques élégants et personnalisés dans R.
+
+**Rendu final**
+Le projet sera présenté sous forme d’un bookdown, déployé à l’adresse suivante : 🔗 https://bookdown.org/diawaa577/TableauxAvecGtsummary_ISE1_2025/
 
 
-# Proposition de plan pour notre présentation
-
-Introduction (le package en tant que tel)
-  1.	Les différentes fonctions de gtsumary et leurs paramètres
-  2.	Application pratique
-     
-Conclusion
-
-Références
+**Références**
 
 https://www.danieldsjoberg.com/gtsummary/
 
@@ -31,34 +27,3 @@ https://github.com/ddsjoberg/gtsummary)
 
 
 
-# Rendu final : un bookdown
-## Structure du bookdown
-mon_livre/
-
-_bookdown.yml -> Définition de la structure du livre 
-
-decharge.Rmd -> Décharge
-
-apropos.Rmd -> Avant-propos
-
-introduction.Rmd -> Introduction
-
-chapter1.Rmd -> Grand 1
-
-chapter2.Rmd -> Grand 2 
-
-conclusion.Rmd -> La conclusion
-
-references.Rmd -> Les références
-
-_output.yml -> Formats desortie 
-
-execution.R -> Fichier d'excécution du bookdown
-
-foot.html  -> Pour le pied de page
-
-images/ -> Dossier des image
-
-outputs/ -> Dossier des fichiers html
-
-data/ -> datasets
