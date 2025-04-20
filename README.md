@@ -8,7 +8,7 @@ Le présent repository contient l’ensemble des éléments du projet, centré s
 
 ## **Rendu final**
 
-Le projet sera présenté sous forme d’un bookdown, déployé à l’adresse suivante : 🔗 https://bookdown.org/diawaa577/TableauxAvecGtsummary_ISE1_2025/
+Le projet est présenté sous forme d’un bookdown, déployé à l’adresse suivante : 🔗 https://bookdown.org/diawaa577/TableauxAvecGtsummary_ISE1_2025/
 
 
 ## **Références**
