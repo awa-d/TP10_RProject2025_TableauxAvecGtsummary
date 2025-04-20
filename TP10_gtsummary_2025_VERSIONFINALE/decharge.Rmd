@@ -1,0 +1,14 @@
+---
+title: "Untitled"
+author: "Awa D"
+date: "24/03/2025"
+output: html_document
+---
+
+
+# DECHARGE
+
+Les auteurs de ce rapport tiennent à préciser que ce document a été réalisé dans un cadre académique. Ils assument l'entière responsabilité de son contenu. Cela dit, ni l’Ecole nationale de la Statistique et de l’Analyse économique Pierre Ndiaye (ENSAE) ni l’Agence nationale de la Statistique et de la Démographie (ANSD) ne sauraient être tenus responsables d’éventuelles erreurs ou interprétations contenues dans ce travail.
+
+
+<!-----------------------------------------FIN DE SCRIPT DECHARGE---------------------------------------------->

@@ -1,0 +1,39 @@
+---
+title: ""
+author: "Awa D"
+date: "24/03/2025"
+output: html_document
+---
+
+# REFERENCES
+
+La rédaction de ce bookdown sur `gtsummary` s'appuie sur plusieurs ressources officielles et tutoriels détaillés.  
+
+### Documentation officielle et tutoriels  
+- [Documentation complète de gtsummary (CRAN)](https://cran.r-project.org/web/packages/gtsummary/gtsummary.pdf)  
+- [Guide d’utilisation de `tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html)  
+- [Utilisation de gtsummary dans R Markdown](https://www.danieldsjoberg.com/gtsummary/articles/rmarkdown.html)  
+- [Les thèmes de gtsummary](https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html)  
+
+### Autres ressources utiles 
+- [Analyse de données avec gtsummary](https://larmarange.github.io/analyse-R/gtsummary.html)  
+- [Présentation du package sur le blog de RStudio](https://education.rstudio.com/blog/2020/07/gtsummary/)  
+- [Dépôt GitHub officiel de gtsummary](https://github.com/ddsjoberg/gtsummary)
+
+### Liens vers la documentation de chacun des packages utilisés (sauf gtsummary)
+
+|Package | Lien vers documentation|
+|---------|-------------|
+|readr |  https://readr.tidyverse.org / https://cran.r-project.org/package=readr|
+|dplyr |  https://dplyr.tidyverse.org / https://cran.r-project.org/package=dplyr|
+|flextable |  https://davidgohel.github.io/flextable/ / https://cran.r-project.org/package=flextable|
+|gt |  https://gt.rstudio.com/  /  https://cran.r-project.org/package=gt|
+|ggplot2 |  https://ggplot2.tidyverse.org / https://cran.r-project.org/package=ggplot2|
+|tidyr |  https://tidyr.tidyverse.org /  https://cran.r-project.org/package=tidyr|
+|ineq |  https://cran.r-project.org/package=ineq|
+|kableExtra |  https://haozhu233.github.io/kableExtra / https://cran.r-project.org/package=kableExtra|
+|officer |  https://davidgohel.github.io/officer/ /https://cran.r-project.org/package=officer|
+
+
+
+<!-----------------------------------------FIN DE SCRIPT REFERENCES---------------------------------------------->

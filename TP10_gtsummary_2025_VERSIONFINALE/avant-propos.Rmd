@@ -1,0 +1,27 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+# AVANT-PROPOS
+
+Ce rapport s’inscrit dans le cadre d'une présentation sanctionnant la fin du cours de Projet statistique avec R.  
+À l’issue de ce cours, il nous a été demandé de travailler sur les tableaux avec gtsummary, en mobilisant les connaissances acquises.  
+
+Ici, nous ne nous arrêterons pas uniquement aux codes, mais nous appliquerons les règles d'un bon script, notamment :  
+- Utilisation de références relatives pour un code bien structuré.  
+- Commentaires clairs pour expliquer chaque section du code et noms de chunks explicite.  
+- Illustrations avec des exemples concrets pour faciliter la compréhension.
+- 
+- Rédaction du rapport avec Bookdown, insertion de formules mathématiques, des applications issues des précédents TPs. 
+
+L'objectif principal est d'appliquer au mieux les connaissances acquises au cours du semestre.  
+
+Nous tenons à exprimer notre profonde gratitude à l’ANSD ainsi qu’à toute l’équipe pédagogique de l’ENSAE pour les conditions d’apprentissage mises à notre disposition.  
+
+Nous adressons également nos sincères remerciements à M. Aboubacar HEMA, notre professeur de Projet Statistique avec R, pour son encadrement et ses enseignements.  
+
+Enfin, nous remercions chaleureusement nos camarades de classe pour leur collaboration et les échanges enrichissants qui ont jalonné ce projet.  
+
+<!-----------------------------------------FIN DE SCRIPT - A PROPOS---------------------------------------------->

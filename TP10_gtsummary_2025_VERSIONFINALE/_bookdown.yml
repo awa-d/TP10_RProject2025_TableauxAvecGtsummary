@@ -1,0 +1,15 @@
+############## LA OU ON DEFINIT LE CONTENU DE NOTRE LIVRE. QUELS CHAPITRES PRENDRE?######################
+
+book_filename: "GTSUMMARYBook"
+delete_merged_file: true
+output_dir: "_book"
+
+rmd_files:
+  - index.Rmd
+  - decharge.Rmd
+  - avant-propos.Rmd
+  - introduction.Rmd
+  - chapitre-i.-les-principales-fonctions-de-gtsummary.Rmd
+  - chapitre-ii.-applications-pratiques.Rmd
+  - conclusion.Rmd
+  - references.Rmd
