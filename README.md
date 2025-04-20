@@ -2,7 +2,7 @@
 
 Theme 9: Tableaux avec gtsummary
 
-Ce projet s'inscrit dans le cadre du cours de projet statistique avec R dispensé par *M. Aboubacar HEMA* https://github.com/Abson-dev, et est réalisé par Awa DIAW (ISE1 CL) https://github.com/awa-d et RASAMOELINA Nihaviana Albert Paulinah (ISE Eco).
+Ce projet s'inscrit dans le cadre du cours de projet statistique avec R dispensé par *M. Aboubacar HEMA* https://github.com/Abson-dev, et est réalisé par Awa DIAW (ISE1 CL) https://github.com/awa-d et RASAMOELINA Nihaviana Albert Paulinah (ISE Eco) https://github.com/NEVENA319.
 Le présent repository contient l’ensemble des éléments du projet, centré sur l’exploitation du package gtsummary, un outil puissant pour la création de tableaux statistiques élégants et personnalisés dans R.
 
 
