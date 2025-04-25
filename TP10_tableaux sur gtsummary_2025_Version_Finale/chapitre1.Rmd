@@ -1,0 +1,439 @@
+---
+title: "Décharge"
+author: "**Awa DIAW & Paulinah RASAMOELINA**"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+# CHAPITRE I. LES PRINCIPALES FONCTIONS DE GTSUMMARY
+
+Il existe quatre principales manières de personnaliser la sortie du tableau récapitulatif :
+
+- Utilisation des arguments de la fonction `tbl_summary()`
+
+- Ajout d'informations supplémentaires avec les fonctions `add_()`
+
+- Fonctions de personnalisation du tableau
+
+- Les thèmes gtsummary
+
+Et il est possible d'exporter les tableaux vers différents formats.
+
+
+
+## 0. Préambule sur les opérateurs de pipe
+
+<img src="images/pipes.jpg" width="150" style="margin-right: 20px;"> <br>
+
+Avant d'explorer les fonctionnalités de gtsummary, il est utile de comprendre les opérateurs pipe qui facilitent l'écriture de code dans R :
+
+- Opérateur natif |>
+
+Introduit dans R 4.1.0 (2021), l’opérateur |> permet de simplifier l’écriture des chaînes de traitement. Il envoie la valeur située à sa gauche comme premier argument à la fonction à sa droite. Par exemple :
+
+```{r setup, echo=TRUE, eval=FALSE, include=TRUE}
+result <- data |> head(10)
+```
+équivaut à :
+```{r, echo=TRUE, eval=FALSE, include=TRUE}
+result <- head(data, 10)
+```
+
+- Pipe du tidyverse %>%
+
+Provenant du package magrittr (et souvent utilisé via dplyr ou tidyverse), %>% permet également de chaîner des opérations. Ce pipe est particulièrement flexible et permet d’insérer des appels de fonctions de manière plus naturelle. Par exemple :
+
+```{r, echo=TRUE, eval=FALSE, include=TRUE}
+library(dplyr)
+result <- data %>% 
+  filter(age > 30) %>% 
+  summarise(mean_age = mean(age, na.rm = TRUE))
+```
+équivaut à : 
+
+```{r, echo=TRUE, eval=FALSE, include=TRUE}
+filtered_data <- filter(data, age > 30)
+result <- summarise(filtered_data, mean_age = mean(age, na.rm = TRUE))
+```
+
+Les deux pipes offrent une syntaxe fluide et lisible. La différence majeure réside dans la compatibilité avec d’autres packages et dans certaines subtilités syntaxiques, mais dans la pratique, ils remplissent le même rôle.
+
+## 1. Utilisation des arguments de la fonction tbl_summary()
+
+**Description :**  
+Cette fonction peut prendre, au minimum, un data frame comme seul argument d'entrée et renvoie, dans ce cas, des statistiques descriptives pour chaque colonne du data frame.
+```{r, echo=FALSE,warning=FALSE}
+
+# IMPORTATION
+library(readr)
+dataset <- read_csv("data/ehcvm_welfare_2b_bfa2021.csv")
+View(dataset)
+head(dataset)
+names(dataset)
+```
+
+```{r,eval=F, echo=T,warning=FALSE }
+library(gtsummary)
+dataset |> tbl_summary()
+```
+
+**Arguments clés :** 
+
+La fonction tbl_summary() propose plusieurs options pour modifier l'apparence du tableau récapitulatif. Voici un aperçu des principaux arguments :
+
+| Argument | Description |
+|---------|-------------|
+| `type` |	Définit le type de variable (ex. : continue, catégorielle, etc.)|
+| `sort` |	Trie les niveaux d’une variable catégorielle par fréquence|
+| `percent` |	Définit si les pourcentages doivent être affichés par colonne, ligne ou cellule|
+| `by` | Permet de stratifier les statistiques selon une variable spécifique (par exemple, pour comparer les groupes)|
+| `label` | Personnalise les étiquettes affichées pour les variables |
+| `statistic` | Définit les statistiques à afficher pour chaque variable, en utilisant souvent la syntaxe {glue} (ex. : `"{mean} ({sd})"`)|
+| `digits` | Spécifie le nombre de décimales à utiliser pour l’affichage des statistique|
+| `missing` | Indique s’il faut afficher une ligne avec le nombre de valeurs manquantes ("ifany" : Affichage explicite des valeurs manquantes si elles existent)|
+| `include` | Liste des variables à inclure dans le tableau|
+
+**Exemple de script :**
+
+```{r chap1tbl_summary_examplesimple,warning=FALSE, results='hide'}
+library(gtsummary)
+tbl_summary_examplesimple <- dataset %>%
+  tbl_summary(
+    by = hgender,  # Stratification : les statistiques sont calculées séparément pour chaque sexe
+    include = hage,  # Seule 'hage' est dans le tableau
+    label = hage ~ "Age du chef de ménage",  
+    statistic = all_continuous() ~ "{mean} ({sd})",  # Pour les variables continues, afficher la moyenne et l'écart-type
+    digits = all_continuous() ~ 2,  # Val num avec 2 décimales
+    missing = "ifany"  # Affichage explicite des valeurs manquantes si elles existent
+  )
+# Affichage du tableau
+tbl_summary_examplesimple
+```
+Exemple d'interprétation : 
+
+- L’échantillon est dominé par des hommes, qui représentent la grande majorité des chefs de ménage (6 101 contre 1 075).
+- En moyenne, les chefs de ménage féminins sont plus âgés (48 ans) que les chefs de ménage masculins (45 ans).
+- De plus, la variabilité de l'âge des chefs de ménage est légèrement plus élevée chez les femmes (15.37  contre 14.50).
+
+Allons plus loin en incluant plusieurs variables dans notre tableau ...
+
+```{r chap1tbl_summary_example, echo=TRUE, eval=TRUE}
+# Création d'un tableau de synthèse stratifié par la variable 'hage'
+tbl_summary_example <- dataset %>%
+  tbl_summary(
+    by = hgender,  
+    include = c(hage, hhsize, hmstat, hreligion, hdiploma, hhandig),  # Toutes ces variables seront incluses dans le tableau
+    label = list(
+      hage ~ "Âge du chef de ménage",  
+      hhsize ~ "Taille du ménage",  
+      hmstat ~ "Statut matrimonial du chef de ménage", 
+      hreligion ~ "Religion",  
+      hdiploma ~ "Plus haut diplôme du chef de ménage", 
+      hhandig ~ "Des handicapés dans le ménage ?"  
+    ),  
+    statistic = all_continuous() ~ "{mean} ({sd})",  
+    digits = all_continuous() ~ 2,  
+    missing = "ifany"  
+  ) %>%
+  modify_header(label ~ "**Noms de variables**") -> tbl_summary_example
+
+# Affichage du tableau
+tbl_summary_example
+```
+
+
+## 2. Ajout d'informations supplémentaires avec les fonctions add_()
+
+### a. add_overall()
+
+**Description :**  
+Ajoute une colonne contenant les statistiques globales (non stratifiées), en complément de celles affichées par groupe.
+
+**Paramètres importants :**
+
+- **last** : Positionne la colonne globale à la fin du tableau (TRUE/FALSE).
+- **col_label** : Permet de personnaliser l’intitulé de la colonne globale.
+
+**Exemple de script :**
+
+```{r chap1tbl_summary_overall, echo=TRUE, eval=TRUE}
+tbl_summary_overall <- tbl_summary_example %>%
+  add_overall(
+    last = TRUE,
+    col_label = "**Colonne des totaux ajouté** {N}"
+  )
+
+tbl_summary_overall
+```
+Exemple d'interprétation : 
+
+- L'échantillon total comprend 7,176 chefs de ménage.
+- L'âge moyen global est 45.68 ans tandis que l'écart-type global est 14.67 ans.
+
+### b. add_n()
+
+**Description :**  
+Ajoute une colonne indiquant le nombre d’observations (ou le nombre d’observations non manquantes) pour chaque variable.
+
+**Paramètres importants :**
+
+- **col_label** : Modifie l’intitulé de la colonne.
+- **statistic** : Permet de définir le format d’affichage des effectifs.
+- **footnote** : Ajoute une note de bas de tableau explicative.
+
+**Exemple de script :**
+
+```{r chap1tbl_summary_with_n, echo=TRUE, eval=TRUE, include=TRUE}
+tbl_summary_with_n <- tbl_summary_example %>%
+  add_n(
+    col_label = "**Effectif**",  # Intitulé de la colonne
+    statistic = "{N_nonmiss}",  # {p_miss}ou {N}...
+  ) %>%
+  modify_table_styling(
+    columns = everything(),
+    footnote = "Nbre d'observations non manquantes"
+  )
+
+# Afficher le tableau final
+tbl_summary_with_n
+```
+
+Dans cet exemple, nous avons utilisé uniquement les fonctions add_n() et add_overall() pour enrichir notre tableau de synthèse. 
+
+Cependant, il existe d'autres fonctions comme add_p() pour ajouter des p-values pour comparer les groupes, add_difference() pour calculer la différence entre deux groupes avec l'intervalle de confiance et la p-value associée, ou encore add_stat_label() pour ajouter des étiquettes aux statistiques affichées. Nous n'avons pas utilisé ces fonctions ici, car elles nécessitent la mise en œuvre de tests statistiques, ce que nous n'avons pas encore couvert dans le cadre de notre formation. 
+
+## 3. Fonctions de personnalisation du tableau
+
+Ces fonctions de formatage de table proposées par `gtsummary` permettent de modifier l’aspect du tableau après sa création.
+
+- modify_header() : Met à jour les en-têtes de colonnes.
+
+```{r chap1modifyheader, echo=TRUE, eval=TRUE, include=TRUE}
+# Modifier les en-têtes des colonnes
+tbl_summary_modified <- tbl_summary_example %>%
+  modify_header(label~ "**Nom de variables**",stat_1 ~ "**Femmes**",  
+                # Personnaliser l'en-tête de la col des var,
+                #de la 1ere colonne des statistiques
+    stat_2 ~ "**Hommes**"  # pour la 2e
+    )
+
+# Afficher le tableau modifié
+tbl_summary_modified
+```
+
+| Autres paramètres | Description |
+|---------|-------------|
+| modify_footnote_header() | Met à jour la note de bas de colonne dans l'en-tête|
+| modify_footnote_body() | Met à jour la note de bas de colonne dans le corps du tableau|
+| modify_spanning_header() | Met à jour les en-têtes englobants (spanning headers)|
+| modify_caption() | Met à jour la légende du tableau (titre)|
+| bold_labels() | Met en gras les étiquettes des variables|
+| bold_levels() | Met en gras les niveaux des variables|
+| italicize_labels() | Met en italique les étiquettes des variables|
+| italicize_levels() | Met en italique les niveaux des variables|
+| bold_p() | Met en gras les p-values significatives|
+
+
+```{r chap1tabpersoall, echo=TRUE, eval=TRUE, include=TRUE}
+# Créer le tableau de synthèse personnalisé
+tbl_summary_personalized <- dataset %>%
+  tbl_summary(
+    by = hmstat,
+    include = c(hage, hhsize)  # Sélection des variables
+  ) %>%
+  add_overall() %>%  # Ajouter une colonne avec les statistiques globales
+  add_n() %>%  # Ajouter une colonne avec N (ou N manquants)
+  modify_header(label ~ "**Variables d'interet**") %>%  # Modifier l'en-tête des variables
+  modify_spanning_header(c("stat_1", "stat_2","stat_3", "stat_4" ,"stat_5", "stat_6", "stat_7") ~ "**Etat matrimonial**") %>%  # En-têtes englobants
+  modify_caption("Tableau modifié. Personnalisation") %>%  # Légende
+  bold_labels() %>%  # Mettre en gras les étiquettes des variables
+  italicize_labels() 
+# Afficher le tableau modifié
+tbl_summary_personalized
+
+```
+
+- Combinaison des tableaux avec tbl_merge() et tbl_stack()
+
+*Combinaison de tableaux avec tbl_merge()*
+
+La fonction tbl_merge() permet de fusionner plusieurs tableaux en un seul en ajoutant des colonnes provenant de différents tableaux.
+
+Dans cet exemple, nous allons combiner 2 tableaux en un seul tableau avec tbl_merge().
+
+```{r chap1tablecombined, echo=TRUE, eval=TRUE}
+
+tbl_1 <- dataset %>%
+  tbl_summary(by = milieu, include = c(hage, hhsize))
+
+tbl_2 <- dataset %>%
+  tbl_summary(by = hgender, include = c(hage, hhsize))
+
+# Fusionner les deux tableaux dans une liste
+tbl_combined <- tbl_merge(
+  list(tbl_1, tbl_2), 
+  tab_spanner = c("Tableau 1 - Par milieu de résidence", "Tableau 2 - Par sexe")
+)%>%
+modify_header(label~ "**Nom de variables/Modalités**")
+
+# Afficher le tableau fusionné
+tbl_combined
+```
+
+*Combinaison de tableaux avec tbl_stack()*
+
+La fonction tbl_stack() permet d'empiler plusieurs tableaux gtsummary verticalement. Cela signifie que les lignes des différents tableaux sont combinées en un seul tableau. Attention : les entêtes de colonnes doivent correspondre. Si ce n’est pas le cas,
+seules les entêtes du premier tableau sont conservées dans le tableau final
+
+Dans cet exemple, nous allons empiler deux tableaux créés avec tbl_summary().
+
+```{r chap1tablestacked, echo=TRUE, eval=TRUE}
+# Créer deux tableaux de statistiques descriptives
+tbl_1 <- dataset %>%
+  tbl_summary(by = milieu, include = c(hage, hhsize))
+tbl_2 <- dataset %>%
+  tbl_summary(by = hgender, include = c(hage, hhsize))
+
+# Empiler les deux tableaux verticalement
+tbl_stacked <- tbl_stack(
+  tbls = list(tbl_1, tbl_2),  # Passer les tableaux sous forme de liste
+  group_header = c("Tableau 1 - Par milieu", "Tableau 2 - Par sexe")
+) %>%
+  modify_header(label ~ "**Nom de variables**")  # Appliquer après le stacking
+
+# Afficher le tableau empilé
+tbl_stacked
+```
+
+## 4. Personnalisation de l'apparence avec les thèmes gtsummary
+
+Le package gtsummary offre plusieurs thèmes intégrés pour personnaliser l'apparence des tableaux générés, permettant ainsi d'adapter l'affichage en fonction du contexte d'utilisation (publication académique, rapport professionnel, etc.). Ces thèmes influencent l'aspect général du tableau, comme l'espacement, la mise en forme des en-têtes et des colonnes, ainsi que l'agencement des lignes et des bordures.
+
+### a. theme_gtsummary_journal()
+Ce thème permet de suivre le style de publication de revues académiques, avec des options pour choisir parmi plusieurs journaux :
+
+- "jama" (Journal of the American Medical Association)
+
+- "lancet" (The Lancet)
+
+- "nejm" (The New England Journal of Medicine)
+
+- "qjecon" (The Quarterly Journal of Economics)
+
+Exemple d'utilisation :
+
+```{r, echo=TRUE, eval=TRUE, include=TRUE}
+set_gtsummary_theme(theme_gtsummary_journal("qjecon"))  # Appliquer le thème 
+dataset |> tbl_summary(include = c(hage, hmstat))%>%
+  modify_header(label ~ "**Nom de variables**") 
+```
+
+### b. theme_gtsummary_compact()
+Ce thème rend les tableaux plus compacts en réduisant la taille de la police et l'espacement des cellules, idéal pour les rapports plus condensés.
+
+Exemple d'utilisation :
+
+```{r, echo=TRUE, eval=TRUE, include=TRUE}
+set_gtsummary_theme(theme_gtsummary_compact())  # Appliquer le thème 'compact'
+dataset |> tbl_summary(include = c(hage, hmstat))%>%
+  modify_header(label ~ "**Nom de variables**") 
+```
+
+###  b. Autres thèmes
+
+Thème | Description | Script d'exemple
+|---------|-------------|-------------|
+theme_gtsummary_printer() | Permet de définir le moteur de rendu des tableaux, en choisissant parmi plusieurs options comme gt, kable, flextable, etc. | theme_gtsummary_printer(print_engine = 'flextable', set_theme = TRUE)
+theme_gtsummary_language() | Permet de définir la langue des tableaux générés, avec des traductions disponibles pour plusieurs langues, y compris le français, l'anglais, l'espagnol, etc. | theme_gtsummary_language(language = 'fr', set_theme = TRUE)
+theme_gtsummary_continuous2() | Modifie la présentation des variables continues dans tbl_summary() pour afficher des statistiques comme la médiane et l'intervalle interquartile par défaut. | theme_gtsummary_continuous2(set_theme = TRUE)
+theme_gtsummary_mean_sd() | Définit les statistiques par défaut pour les variables continues sur la moyenne et l'écart-type. | theme_gtsummary_mean_sd(set_theme = TRUE)
+theme_gtsummary_eda() | Ce thème est conçu pour l'exploration des données (EDA) et affiche des statistiques supplémentaires comme la médiane, l'IQ, la moyenne, l'écart-type et la plage. | theme_gtsummary_eda(set_theme = TRUE)
+
+### Remarque :
+
+- set_theme = TRUE : Applique le thème de manière permanente.
+
+- set_theme = FALSE : Retourne les éléments du thème sans l'appliquer.
+
+
+
+### c. Quelques autres thèmes
+Les autres thèmes incluent :
+
+Thème | Description
+|---------|-------------|
+theme_gtsummary_journal() | Style sobre, typique des journaux académiques
+theme_gtsummary_compact() | Espacement réduit entre les lignes et colonnes
+theme_gtsummary_jama() | Suivant les normes du Journal of the American Medical Association
+theme_gtsummary_newj() | Inspiré du New England Journal of Medicine
+theme_gtsummary_language("fr") | Pour adapter les intitulés en français
+
+
+## 5. Exportation des tableaux vers différents formats
+
+### a. Exportation au format Word (flextable)
+
+```{r}
+# Installer le package manquant si nécessaire
+if (!requireNamespace("fontBitstreamVera", quietly = TRUE)) {
+  install.packages("fontBitstreamVera")  # <- Peut corriger ton erreur initiale
+}
+
+# Chargement des packages
+library(flextable)
+library(officer)
+
+# Si problème persiste malgré l'installation, tu peux fixer une police système classique :
+set_flextable_defaults(font.family = "Arial")
+
+# Génération du flextable
+tbl_summary_flex <- tbl_summary_overall %>%
+  as_flex_table() %>%
+  autofit()
+
+# Affichage dans la console (si RMarkdown ou RStudio Viewer)
+tbl_summary_flex
+
+# Création du dossier d'export si non existant
+if (!dir.exists("./tableaux_exportes")) {
+  dir.create("./tableaux_exportes")
+}
+
+# Export en Word
+save_as_docx(tbl_summary_flex, path = "./tableaux_exportes/tableau_exporté_chap1.docx")
+
+message("✅ Le fichier 'tableau_exporté_chap1.docx' a été sauvegardé avec succès !")
+
+```
+
+### b. Exportation au format HTML (gt)
+
+```{r chap1exporthtml, warning=FALSE}
+# Exportation en format gt (pour HTML)
+library(gt)
+tbl_summary_gt <- tbl_summary_overall %>%
+  modify_header(label ~ "Nom de variables") %>%
+  as_gt() %>%
+  tab_header(
+    title = "Statistiques descriptives de l'EHCVM 2021",
+    subtitle = "Avec nos variables d'intéret"
+  ) %>%
+  tab_options(
+    heading.background.color = "#4E79A7",
+    heading.title.font.size = 18,
+    heading.subtitle.font.size = 14,
+    column_labels.background.color = "#A0CBE8"
+  )
+
+# Affichage du tableau gt
+tbl_summary_gt
+
+# Pour sauvegarder en HTML (décommenter pour utiliser)
+gt::gtsave(tbl_summary_gt, filename = "./tableaux_exportes/tableau_exporté_chap1.html")
+message("Le fichier 'tableau_exporté_chap1.html' a été sauvegardé avec succès !")
+```
+
+
+
+<!---------------------------------------FIN DE SCRIPT - Chapitre 1-------------------------------------------->
+

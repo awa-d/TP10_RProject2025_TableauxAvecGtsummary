@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>CHAPITRE II. APPLICATION PRATIQUE | GTSUMMARYBook.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="CHAPITRE II. APPLICATION PRATIQUE | GTSUMMARYBook.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="CHAPITRE II. APPLICATION PRATIQUE | GTSUMMARYBook.knit" />
+  
+  
+  
+
+<meta name="author" content="Awa DIAW &amp; Paulinah RASAMOELINA" />
+
+
+<meta name="date" content="2025-04-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chapitre-i.-les-principales-fonctions-de-gtsummary.html"/>
+<link rel="next" href="conclusion-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i>🧭</a></li>
+<li class="chapter" data-level="" data-path="decharge.html"><a href="decharge.html"><i class="fa fa-check"></i>DECHARGE</a></li>
+<li class="chapter" data-level="" data-path="avant-propos.html"><a href="avant-propos.html"><i class="fa fa-check"></i>AVANT-PROPOS</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>INTRODUCTION</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><i class="fa fa-check"></i>CHAPITRE I. LES PRINCIPALES FONCTIONS DE GTSUMMARY</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#préambule-sur-les-opérateurs-de-pipe"><i class="fa fa-check"></i>0. Préambule sur les opérateurs de pipe</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#utilisation-des-arguments-de-la-fonction-tbl_summary"><i class="fa fa-check"></i>1. Utilisation des arguments de la fonction tbl_summary()</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#ajout-dinformations-supplémentaires-avec-les-fonctions-add_"><i class="fa fa-check"></i>2. Ajout d’informations supplémentaires avec les fonctions add_()</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#a.-add_overall"><i class="fa fa-check"></i>a. add_overall()</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#b.-add_n"><i class="fa fa-check"></i>b. add_n()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#fonctions-de-personnalisation-du-tableau"><i class="fa fa-check"></i>3. Fonctions de personnalisation du tableau</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#personnalisation-de-lapparence-avec-les-thèmes-gtsummary"><i class="fa fa-check"></i>4. Personnalisation de l’apparence avec les thèmes gtsummary</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#a.-theme_gtsummary_journal"><i class="fa fa-check"></i>a. theme_gtsummary_journal()</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#b.-theme_gtsummary_compact"><i class="fa fa-check"></i>b. theme_gtsummary_compact()</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#b.-autres-thèmes"><i class="fa fa-check"></i>b. Autres thèmes</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#remarque"><i class="fa fa-check"></i>Remarque :</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#c.-quelques-autres-thèmes"><i class="fa fa-check"></i>c. Quelques autres thèmes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#exportation-des-tableaux-vers-différents-formats"><i class="fa fa-check"></i>5. Exportation des tableaux vers différents formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#a.-exportation-au-format-word-flextable"><i class="fa fa-check"></i>a. Exportation au format Word (flextable)</a></li>
+<li class="chapter" data-level="" data-path="chapitre-i.-les-principales-fonctions-de-gtsummary.html"><a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html#b.-exportation-au-format-html-gt"><i class="fa fa-check"></i>b. Exportation au format HTML (gt)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html"><i class="fa fa-check"></i>CHAPITRE II. APPLICATION PRATIQUE</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#consigne"><i class="fa fa-check"></i>0. Consigne</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#projet"><i class="fa fa-check"></i>Projet :</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#scénarios-simulés"><i class="fa fa-check"></i>Scénarios simulés :</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#chargement-des-packages-nécessaires-et-des-données-ehcvm-2021-du-burkina-faso"><i class="fa fa-check"></i>1. Chargement des packages nécessaires et des données EHCVM 2021 du Burkina Faso</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#objectif"><i class="fa fa-check"></i>Objectif</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#variables-importantes"><i class="fa fa-check"></i>Variables importantes</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#préparation-des-données"><i class="fa fa-check"></i>Préparation des données</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#lecture-du-fichier"><i class="fa fa-check"></i>Lecture du fichier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#exploration-préliminaire"><i class="fa fa-check"></i>2. Exploration préliminaire</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#aperçu-des-premières-lignes"><i class="fa fa-check"></i>Aperçu des premières lignes</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#dimensions-de-la-base"><i class="fa fa-check"></i>Dimensions de la base</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#vérification-de-la-qualité-des-données"><i class="fa fa-check"></i>Vérification de la qualité des données</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#proposition-de-correction-du-projet"><i class="fa fa-check"></i>3. Proposition de correction du projet</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#méthodologie"><i class="fa fa-check"></i>Méthodologie</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#analyse-descriptive-avec-gtsummary"><i class="fa fa-check"></i>Analyse descriptive avec gtsummary</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#situation-avant-les-simulations"><i class="fa fa-check"></i>Situation avant les simulations</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#résultats-des-simulations"><i class="fa fa-check"></i>Résultats des simulations</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#comparaison-des-différents-scénarios"><i class="fa fa-check"></i>Comparaison des différents scénarios</a></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chapitre-ii.-application-pratique.html"><a href="chapitre-ii.-application-pratique.html#annexe-définitions-et-formules"><i class="fa fa-check"></i>Annexe : Définitions et formules</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i>CONCLUSION</a></li>
+<li class="chapter" data-level="" data-path="références.html"><a href="références.html"><i class="fa fa-check"></i>RÉFÉRENCES</a>
+<ul>
+<li class="chapter" data-level="" data-path="références.html"><a href="références.html#documentation-officielle-et-tutoriels"><i class="fa fa-check"></i>Documentation officielle et tutoriels</a></li>
+<li class="chapter" data-level="" data-path="références.html"><a href="références.html#autres-ressources-utiles"><i class="fa fa-check"></i>Autres ressources utiles</a></li>
+<li class="chapter" data-level="" data-path="références.html"><a href="références.html#liens-vers-la-documentation-de-chacun-des-packages-utilisés-sauf-gtsummary"><i class="fa fa-check"></i>Liens vers la documentation de chacun des packages utilisés (sauf gtsummary)</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapitre-ii.-application-pratique" class="section level1 hasAnchor">
+<h1>CHAPITRE II. APPLICATION PRATIQUE<a href="chapitre-ii.-application-pratique.html#chapitre-ii.-application-pratique" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="consigne" class="section level2 hasAnchor">
+<h2>0. Consigne<a href="chapitre-ii.-application-pratique.html#consigne" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="projet" class="section level3 hasAnchor">
+<h3>Projet :<a href="chapitre-ii.-application-pratique.html#projet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Évaluation des politiques de transfert monétaire sur la pauvreté et les inégalités au Burkina Faso, à l’aide des données de l’EHCVM 2021.</p>
+</div>
+<div id="scénarios-simulés" class="section level3 hasAnchor">
+<h3>Scénarios simulés :<a href="chapitre-ii.-application-pratique.html#scénarios-simulés" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Scénario 1 : Transfert universel — Tous les ménages reçoivent une allocation annuelle de 100 000 CFA.</li>
+<li>Scénario 2 : Transfert universel rural — Seuls les ménages ruraux reçoivent l’allocation.</li>
+<li>Scénario 3 : Chef de ménage femme — Transfert ciblé aux ménages dirigés par une femme.</li>
+<li>Scénario 4 : Chef polygame — Transfert aux ménages dont le chef est polygame.</li>
+<li>Scénario 5 : Handicap — Transfert aux ménages comprenant au moins un membre en situation de handicap.</li>
+</ul>
+</div>
+</div>
+<div id="chargement-des-packages-nécessaires-et-des-données-ehcvm-2021-du-burkina-faso" class="section level2 hasAnchor">
+<h2>1. Chargement des packages nécessaires et des données EHCVM 2021 du Burkina Faso<a href="chapitre-ii.-application-pratique.html#chargement-des-packages-nécessaires-et-des-données-ehcvm-2021-du-burkina-faso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="objectif" class="section level4 hasAnchor">
+<h4>Objectif<a href="chapitre-ii.-application-pratique.html#objectif" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Utiliser le package <code>gtsummary</code> pour explorer, résumer et mieux comprendre les variables clés.</p>
+</div>
+<div id="variables-importantes" class="section level4 hasAnchor">
+<h4>Variables importantes<a href="chapitre-ii.-application-pratique.html#variables-importantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pcexp</code></td>
+<td>Dépense par tête (proxy du revenu)</td>
+</tr>
+<tr class="even">
+<td><code>hhsize</code></td>
+<td>Taille du ménage</td>
+</tr>
+<tr class="odd">
+<td><code>milieu</code></td>
+<td>Milieu de résidence (<code>urbain</code> ou <code>rural</code>)</td>
+</tr>
+<tr class="even">
+<td><code>hmstat</code></td>
+<td>Statut matrimonial du chef de ménage</td>
+</tr>
+<tr class="odd">
+<td><code>hgender</code></td>
+<td>Sexe du chef de ménage</td>
+</tr>
+<tr class="even">
+<td><code>zref</code></td>
+<td>Seuil de pauvreté national</td>
+</tr>
+<tr class="odd">
+<td><code>hhandig</code></td>
+<td>Présence ou non d’handicapés dans le ménage</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="préparation-des-données" class="section level4 hasAnchor">
+<h4>Préparation des données<a href="chapitre-ii.-application-pratique.html#préparation-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Commençons par charger les bibliothèques nécessaires</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chapitre-ii.-application-pratique.html#cb33-1" tabindex="-1"></a><span class="co"># Chargement des packages nécessaires à l’analyse</span></span>
+<span id="cb33-2"><a href="chapitre-ii.-application-pratique.html#cb33-2" tabindex="-1"></a><span class="co"># (Ils seront installés automatiquement s&#39;ils ne sont pas présents)</span></span>
+<span id="cb33-3"><a href="chapitre-ii.-application-pratique.html#cb33-3" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="chapitre-ii.-application-pratique.html#cb33-4" tabindex="-1"></a><span class="co"># Liste des packages</span></span>
+<span id="cb33-5"><a href="chapitre-ii.-application-pratique.html#cb33-5" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb33-6"><a href="chapitre-ii.-application-pratique.html#cb33-6" tabindex="-1"></a>  <span class="st">&quot;readr&quot;</span>,      <span class="co"># Pour lire les fichiers de données (CSV, etc.)</span></span>
+<span id="cb33-7"><a href="chapitre-ii.-application-pratique.html#cb33-7" tabindex="-1"></a>  <span class="st">&quot;dplyr&quot;</span>, <span class="co"># Pour manipuler les données (filtrer, grouper, résumer, etc.)</span></span>
+<span id="cb33-8"><a href="chapitre-ii.-application-pratique.html#cb33-8" tabindex="-1"></a>  <span class="st">&quot;gtsummary&quot;</span>,  <span class="co"># Pour créer des tableaux statistiques descriptifs professionnels</span></span>
+<span id="cb33-9"><a href="chapitre-ii.-application-pratique.html#cb33-9" tabindex="-1"></a>  <span class="st">&quot;flextable&quot;</span>,  <span class="co"># Pour formater/exporter des tableaux (Word, PPT, HTML)</span></span>
+<span id="cb33-10"><a href="chapitre-ii.-application-pratique.html#cb33-10" tabindex="-1"></a>  <span class="st">&quot;gt&quot;</span>,         <span class="co"># Pour créer des tableaux visuels modernes et interactifs</span></span>
+<span id="cb33-11"><a href="chapitre-ii.-application-pratique.html#cb33-11" tabindex="-1"></a>  <span class="st">&quot;ggplot2&quot;</span>,    <span class="co"># Pour réaliser des graphiques personnalisés</span></span>
+<span id="cb33-12"><a href="chapitre-ii.-application-pratique.html#cb33-12" tabindex="-1"></a>  <span class="st">&quot;tidyr&quot;</span>, <span class="co">#organiser et transformer les données en un format “tidy”, c’est-à-dire </span></span>
+<span id="cb33-13"><a href="chapitre-ii.-application-pratique.html#cb33-13" tabindex="-1"></a>  <span class="co"># Chaque variable dans une colonne, chaque observation dans une ligne, chaque valeur dans une cellule.</span></span>
+<span id="cb33-14"><a href="chapitre-ii.-application-pratique.html#cb33-14" tabindex="-1"></a>  <span class="st">&quot;ineq&quot;</span>,       <span class="co"># Pour mesurer les inégalités (ex. : coefficient de Gini)</span></span>
+<span id="cb33-15"><a href="chapitre-ii.-application-pratique.html#cb33-15" tabindex="-1"></a>  <span class="st">&quot;kableExtra&quot;</span>,  <span class="co"># Pour améliorer les tableaux `knitr::kable()` dans les rapports</span></span>
+<span id="cb33-16"><a href="chapitre-ii.-application-pratique.html#cb33-16" tabindex="-1"></a>  <span class="st">&quot;officer&quot;</span> <span class="co"># Sauvegarder des tableaux gtsummary en word</span></span>
+<span id="cb33-17"><a href="chapitre-ii.-application-pratique.html#cb33-17" tabindex="-1"></a>)</span>
+<span id="cb33-18"><a href="chapitre-ii.-application-pratique.html#cb33-18" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="chapitre-ii.-application-pratique.html#cb33-19" tabindex="-1"></a><span class="co"># Fonction pour installer les packages manquants</span></span>
+<span id="cb33-20"><a href="chapitre-ii.-application-pratique.html#cb33-20" tabindex="-1"></a>install_if_missing <span class="ot">&lt;-</span> <span class="cf">function</span>(pkg) {</span>
+<span id="cb33-21"><a href="chapitre-ii.-application-pratique.html#cb33-21" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(pkg, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb33-22"><a href="chapitre-ii.-application-pratique.html#cb33-22" tabindex="-1"></a>    <span class="fu">install.packages</span>(pkg)</span>
+<span id="cb33-23"><a href="chapitre-ii.-application-pratique.html#cb33-23" tabindex="-1"></a>  }</span>
+<span id="cb33-24"><a href="chapitre-ii.-application-pratique.html#cb33-24" tabindex="-1"></a>}</span>
+<span id="cb33-25"><a href="chapitre-ii.-application-pratique.html#cb33-25" tabindex="-1"></a></span>
+<span id="cb33-26"><a href="chapitre-ii.-application-pratique.html#cb33-26" tabindex="-1"></a><span class="co"># Installation au besoin</span></span>
+<span id="cb33-27"><a href="chapitre-ii.-application-pratique.html#cb33-27" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(packages, install_if_missing))</span>
+<span id="cb33-28"><a href="chapitre-ii.-application-pratique.html#cb33-28" tabindex="-1"></a></span>
+<span id="cb33-29"><a href="chapitre-ii.-application-pratique.html#cb33-29" tabindex="-1"></a><span class="co"># Chargement des packages</span></span>
+<span id="cb33-30"><a href="chapitre-ii.-application-pratique.html#cb33-30" tabindex="-1"></a><span class="fu">lapply</span>(packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[2]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[3]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[4]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[5]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[6]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[7]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[8]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[9]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;      
+## 
+## [[10]]
+##  [1] &quot;kableExtra&quot; &quot;ineq&quot;       &quot;tidyr&quot;      &quot;ggplot2&quot;    &quot;dplyr&quot;      &quot;gt&quot;         &quot;officer&quot;    &quot;flextable&quot; 
+##  [9] &quot;gtsummary&quot;  &quot;readr&quot;      &quot;stats&quot;      &quot;graphics&quot;   &quot;grDevices&quot;  &quot;utils&quot;      &quot;datasets&quot;   &quot;methods&quot;   
+## [17] &quot;base&quot;</code></pre>
+</div>
+<div id="lecture-du-fichier" class="section level4 hasAnchor">
+<h4>Lecture du fichier<a href="chapitre-ii.-application-pratique.html#lecture-du-fichier" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chapitre-ii.-application-pratique.html#cb35-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb35-2"><a href="chapitre-ii.-application-pratique.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="chapitre-ii.-application-pratique.html#cb35-3" tabindex="-1"></a><span class="co"># Chargement du jeu de données EHCVM</span></span>
+<span id="cb35-4"><a href="chapitre-ii.-application-pratique.html#cb35-4" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ehcvm_welfare_2b_bfa2021.csv&quot;</span>)</span>
+<span id="cb35-5"><a href="chapitre-ii.-application-pratique.html#cb35-5" tabindex="-1"></a>vars_interet <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;hhid&quot;</span>, <span class="st">&quot;milieu&quot;</span>, <span class="st">&quot;pcexp&quot;</span>,<span class="st">&quot;hmstat&quot;</span>, <span class="st">&quot;hhsize&quot;</span>,<span class="st">&quot;hhandig&quot;</span>, <span class="st">&quot;hgender&quot;</span>, <span class="st">&quot;zref&quot;</span>)</span>
+<span id="cb35-6"><a href="chapitre-ii.-application-pratique.html#cb35-6" tabindex="-1"></a>datasetapp <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb35-7"><a href="chapitre-ii.-application-pratique.html#cb35-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(vars_interet))</span></code></pre></div>
+</div>
+</div>
+<div id="exploration-préliminaire" class="section level2 hasAnchor">
+<h2>2. Exploration préliminaire<a href="chapitre-ii.-application-pratique.html#exploration-préliminaire" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="aperçu-des-premières-lignes" class="section level4 hasAnchor">
+<h4>Aperçu des premières lignes<a href="chapitre-ii.-application-pratique.html#aperçu-des-premières-lignes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>## # A tibble: 6 × 8
+##     hhid milieu   pcexp hmstat            hhsize hhandig hgender     zref
+##    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt;
+## 1 586005 Rural  330982. Marié(e) monogame      8 Non     Masculin 247806.
+## 2 586028 Rural  368773. Marié(e) polygame     33 Non     Masculin 247806.
+## 3 586043 Rural  217423. Marié(e) monogame      4 Non     Masculin 247806.
+## 4 586044 Rural   88294. Marié(e) monogame     12 Non     Masculin 247806.
+## 5 586052 Rural   85029. Marié(e) polygame     12 Non     Masculin 247806.
+## 6 586082 Rural  175191. Marié(e) monogame      6 Non     Masculin 247806.</code></pre>
+<pre><code>## tibble [7,176 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ hhid   : num [1:7176] 586005 586028 586043 586044 586052 ...
+##  $ milieu : chr [1:7176] &quot;Rural&quot; &quot;Rural&quot; &quot;Rural&quot; &quot;Rural&quot; ...
+##  $ pcexp  : num [1:7176] 330982 368773 217423 88294 85029 ...
+##  $ hmstat : chr [1:7176] &quot;Marié(e) monogame&quot; &quot;Marié(e) polygame&quot; &quot;Marié(e) monogame&quot; &quot;Marié(e) monogame&quot; ...
+##  $ hhsize : num [1:7176] 8 33 4 12 12 6 9 9 9 15 ...
+##  $ hhandig: chr [1:7176] &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; ...
+##  $ hgender: chr [1:7176] &quot;Masculin&quot; &quot;Masculin&quot; &quot;Masculin&quot; &quot;Masculin&quot; ...
+##  $ zref   : num [1:7176] 247806 247806 247806 247806 247806 ...</code></pre>
+</div>
+<div id="dimensions-de-la-base" class="section level4 hasAnchor">
+<h4>Dimensions de la base<a href="chapitre-ii.-application-pratique.html#dimensions-de-la-base" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>## [1] 7176    8</code></pre>
+</div>
+<div id="vérification-de-la-qualité-des-données" class="section level4 hasAnchor">
+<h4>Vérification de la qualité des données<a href="chapitre-ii.-application-pratique.html#vérification-de-la-qualité-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>## ✅ Il n&#39;y a pas de valeurs manquantes dans le dataset.</code></pre>
+<pre><code>## ✅ Il n&#39;y a pas de doublons dans le dataset.</code></pre>
+</div>
+</div>
+<div id="proposition-de-correction-du-projet" class="section level2 hasAnchor">
+<h2>3. Proposition de correction du projet<a href="chapitre-ii.-application-pratique.html#proposition-de-correction-du-projet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Évaluation des politiques de transfert monétaire sur la pauvreté et les inégalités au Burkina Faso</p>
+<div id="introduction-1" class="section level3 hasAnchor">
+<h3>Introduction<a href="chapitre-ii.-application-pratique.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les programmes de transfert monétaire constituent une approche de protection sociale de pour lutter contre la pauvreté.</p>
+</div>
+<div id="méthodologie" class="section level3 hasAnchor">
+<h3>Méthodologie<a href="chapitre-ii.-application-pratique.html#méthodologie" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="analyse-descriptive-avec-gtsummary" class="section level4 hasAnchor">
+<h4>Analyse descriptive avec gtsummary<a href="chapitre-ii.-application-pratique.html#analyse-descriptive-avec-gtsummary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Tableau récapitulatif général</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chapitre-ii.-application-pratique.html#cb41-1" tabindex="-1"></a><span class="fu">set_gtsummary_theme</span>(<span class="fu">theme_gtsummary_compact</span>())  <span class="co"># Appliquer le thème &#39;compact&#39;</span></span></code></pre></div>
+<pre><code>## Setting theme &quot;Compact&quot;
+## Setting theme &quot;Compact&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chapitre-ii.-application-pratique.html#cb43-1" tabindex="-1"></a><span class="co"># Tableau récapitulatif avec tbl_summary() pour toutes les variables</span></span>
+<span id="cb43-2"><a href="chapitre-ii.-application-pratique.html#cb43-2" tabindex="-1"></a>tableau_general <span class="ot">&lt;-</span> datasetapp <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="chapitre-ii.-application-pratique.html#cb43-3" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb43-4"><a href="chapitre-ii.-application-pratique.html#cb43-4" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="fu">list</span>(</span>
+<span id="cb43-5"><a href="chapitre-ii.-application-pratique.html#cb43-5" tabindex="-1"></a>      <span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">&quot;{mean} ({sd})&quot;</span>,</span>
+<span id="cb43-6"><a href="chapitre-ii.-application-pratique.html#cb43-6" tabindex="-1"></a>      <span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="st">&quot;{n} ({p}%)&quot;</span></span>
+<span id="cb43-7"><a href="chapitre-ii.-application-pratique.html#cb43-7" tabindex="-1"></a>    ),</span>
+<span id="cb43-8"><a href="chapitre-ii.-application-pratique.html#cb43-8" tabindex="-1"></a>    <span class="at">digits =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="dv">1</span>),</span>
+<span id="cb43-9"><a href="chapitre-ii.-application-pratique.html#cb43-9" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="cb43-10"><a href="chapitre-ii.-application-pratique.html#cb43-10" tabindex="-1"></a>      pcexp <span class="sc">~</span> <span class="st">&quot;Dépense par tête&quot;</span>,</span>
+<span id="cb43-11"><a href="chapitre-ii.-application-pratique.html#cb43-11" tabindex="-1"></a>      hhsize <span class="sc">~</span> <span class="st">&quot;Taille du ménage&quot;</span>,</span>
+<span id="cb43-12"><a href="chapitre-ii.-application-pratique.html#cb43-12" tabindex="-1"></a>      milieu <span class="sc">~</span> <span class="st">&quot;Milieu de résidence&quot;</span>,</span>
+<span id="cb43-13"><a href="chapitre-ii.-application-pratique.html#cb43-13" tabindex="-1"></a>      hmstat <span class="sc">~</span> <span class="st">&quot;Statut matrimonial&quot;</span>,</span>
+<span id="cb43-14"><a href="chapitre-ii.-application-pratique.html#cb43-14" tabindex="-1"></a>      hgender <span class="sc">~</span> <span class="st">&quot;Sexe du chef de ménage&quot;</span>,</span>
+<span id="cb43-15"><a href="chapitre-ii.-application-pratique.html#cb43-15" tabindex="-1"></a>      zref <span class="sc">~</span> <span class="st">&quot;Seuil de pauvreté&quot;</span>,</span>
+<span id="cb43-16"><a href="chapitre-ii.-application-pratique.html#cb43-16" tabindex="-1"></a>      hhandig <span class="sc">~</span> <span class="st">&quot;Présence de handicapés&quot;</span></span>
+<span id="cb43-17"><a href="chapitre-ii.-application-pratique.html#cb43-17" tabindex="-1"></a>    ),</span>
+<span id="cb43-18"><a href="chapitre-ii.-application-pratique.html#cb43-18" tabindex="-1"></a>    <span class="at">missing_text =</span> <span class="st">&quot;Données manquantes&quot;</span></span>
+<span id="cb43-19"><a href="chapitre-ii.-application-pratique.html#cb43-19" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb43-20"><a href="chapitre-ii.-application-pratique.html#cb43-20" tabindex="-1"></a>  <span class="fu">add_n</span>() <span class="sc">%&gt;%</span>  <span class="co"># Ajouter le nombre d&#39;observations</span></span>
+<span id="cb43-21"><a href="chapitre-ii.-application-pratique.html#cb43-21" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span>  <span class="co"># Mettre les étiquettes en gras</span></span>
+<span id="cb43-22"><a href="chapitre-ii.-application-pratique.html#cb43-22" tabindex="-1"></a>  <span class="fu">italicize_levels</span>() <span class="sc">%&gt;%</span> <span class="co"># Mettre les niveaux en italique</span></span>
+<span id="cb43-23"><a href="chapitre-ii.-application-pratique.html#cb43-23" tabindex="-1"></a>  <span class="fu">modify_header</span>(label <span class="sc">~</span> <span class="st">&quot;**Noms de variables**&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Changer l&#39;en-tête</span></span>
+<span id="cb43-24"><a href="chapitre-ii.-application-pratique.html#cb43-24" tabindex="-1"></a>  <span class="fu">modify_caption</span>(<span class="st">&quot;**Tableau 1. Caractéristiques des ménages burkinabè (EHCVM 2021)**&quot;</span>)</span>
+<span id="cb43-25"><a href="chapitre-ii.-application-pratique.html#cb43-25" tabindex="-1"></a></span>
+<span id="cb43-26"><a href="chapitre-ii.-application-pratique.html#cb43-26" tabindex="-1"></a><span class="co"># Affichage du tableau</span></span>
+<span id="cb43-27"><a href="chapitre-ii.-application-pratique.html#cb43-27" tabindex="-1"></a>tableau_general</span></code></pre></div>
+<div id="mwanysmftc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mwanysmftc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mwanysmftc thead, #mwanysmftc tbody, #mwanysmftc tfoot, #mwanysmftc tr, #mwanysmftc td, #mwanysmftc th {
+  border-style: none;
+}
+
+#mwanysmftc p {
+  margin: 0;
+  padding: 0;
+}
+
+#mwanysmftc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mwanysmftc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mwanysmftc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mwanysmftc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mwanysmftc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mwanysmftc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mwanysmftc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mwanysmftc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mwanysmftc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mwanysmftc .gt_group_heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mwanysmftc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mwanysmftc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mwanysmftc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mwanysmftc .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mwanysmftc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwanysmftc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mwanysmftc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mwanysmftc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mwanysmftc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwanysmftc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mwanysmftc .gt_last_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwanysmftc .gt_first_grand_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_last_grand_summary_row_top {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mwanysmftc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwanysmftc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwanysmftc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwanysmftc .gt_left {
+  text-align: left;
+}
+
+#mwanysmftc .gt_center {
+  text-align: center;
+}
+
+#mwanysmftc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mwanysmftc .gt_font_normal {
+  font-weight: normal;
+}
+
+#mwanysmftc .gt_font_bold {
+  font-weight: bold;
+}
+
+#mwanysmftc .gt_font_italic {
+  font-style: italic;
+}
+
+#mwanysmftc .gt_super {
+  font-size: 65%;
+}
+
+#mwanysmftc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mwanysmftc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mwanysmftc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mwanysmftc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mwanysmftc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mwanysmftc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mwanysmftc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mwanysmftc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mwanysmftc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <caption><span id="tab:unnamed-chunk-17">Table 2: </span><span class='gt_from_md'><strong>Tableau 1. Caractéristiques des ménages burkinabè (EHCVM 2021)</strong></span></caption>
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Noms de variables</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="n"><span class='gt_from_md'><strong>N</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_0"><span class='gt_from_md'><strong>N = 7,176</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">hhid</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center">885,190.9 (173,163.9)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Milieu de résidence</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Rural</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">3,838 (53.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Urbain</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">3,338 (46.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Dépense par tête</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center">475,346.2 (449,755.9)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Statut matrimonial</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Célibataire</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">349 (4.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Divorcé(e)</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">50 (0.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Marié(e) monogame</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">4,352 (60.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Marié(e) polygame</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">1,572 (21.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Séparé(e)</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">86 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Union libre</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">199 (2.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Veuf(ve)</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">568 (7.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Taille du ménage</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center">6.4 (4.0)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Présence de handicapés</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Non</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">6,763 (94.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Oui</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">413 (5.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sexe du chef de ménage</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Féminin</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">1,075 (15.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    Masculin</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">6,101 (85.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Seuil de pauvreté</td>
+<td headers="n" class="gt_row gt_center">7,176</td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-style: italic;">    247805.71875</td>
+<td headers="n" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center">7,176 (100.0%)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Mean (SD); n (%)</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<div id="situation-avant-les-simulations" class="section level4 hasAnchor">
+<h4>Situation avant les simulations<a href="chapitre-ii.-application-pratique.html#situation-avant-les-simulations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="chapitre-ii.-application-pratique.html#cb44-1" tabindex="-1"></a><span class="co"># Définition du seuil de pauvreté (zref)</span></span>
+<span id="cb44-2"><a href="chapitre-ii.-application-pratique.html#cb44-2" tabindex="-1"></a><span class="co"># Création de variables pour l&#39;analyse de la pauvreté</span></span>
+<span id="cb44-3"><a href="chapitre-ii.-application-pratique.html#cb44-3" tabindex="-1"></a>data_baseline <span class="ot">&lt;-</span> datasetapp <span class="sc">%&gt;%</span></span>
+<span id="cb44-4"><a href="chapitre-ii.-application-pratique.html#cb44-4" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb44-5"><a href="chapitre-ii.-application-pratique.html#cb44-5" tabindex="-1"></a>    <span class="at">pauvre =</span> pcexp <span class="sc">&lt;</span> zref,</span>
+<span id="cb44-6"><a href="chapitre-ii.-application-pratique.html#cb44-6" tabindex="-1"></a>    <span class="at">gap =</span> <span class="fu">ifelse</span>(pauvre, zref <span class="sc">-</span> pcexp, <span class="dv">0</span>),</span>
+<span id="cb44-7"><a href="chapitre-ii.-application-pratique.html#cb44-7" tabindex="-1"></a>    <span class="at">gap_normalise =</span> gap <span class="sc">/</span> zref,</span>
+<span id="cb44-8"><a href="chapitre-ii.-application-pratique.html#cb44-8" tabindex="-1"></a>    <span class="at">gap_normalise_carre =</span> gap_normalise<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb44-9"><a href="chapitre-ii.-application-pratique.html#cb44-9" tabindex="-1"></a>  )</span>
+<span id="cb44-10"><a href="chapitre-ii.-application-pratique.html#cb44-10" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="chapitre-ii.-application-pratique.html#cb44-11" tabindex="-1"></a><span class="co"># Calcul des indices FGT initiaux</span></span>
+<span id="cb44-12"><a href="chapitre-ii.-application-pratique.html#cb44-12" tabindex="-1"></a>fgt0_initial <span class="ot">&lt;-</span> <span class="fu">sum</span>(data_baseline<span class="sc">$</span>pauvre <span class="sc">*</span> data_baseline<span class="sc">$</span>hhsize) <span class="sc">/</span> <span class="fu">sum</span>(data_baseline<span class="sc">$</span>hhsize)</span>
+<span id="cb44-13"><a href="chapitre-ii.-application-pratique.html#cb44-13" tabindex="-1"></a>fgt1_initial <span class="ot">&lt;-</span> <span class="fu">sum</span>(data_baseline<span class="sc">$</span>gap_normalise <span class="sc">*</span> data_baseline<span class="sc">$</span>hhsize) <span class="sc">/</span> <span class="fu">sum</span>(data_baseline<span class="sc">$</span>hhsize)</span>
+<span id="cb44-14"><a href="chapitre-ii.-application-pratique.html#cb44-14" tabindex="-1"></a>fgt2_initial <span class="ot">&lt;-</span> <span class="fu">sum</span>(data_baseline<span class="sc">$</span>gap_normalise_carre <span class="sc">*</span> data_baseline<span class="sc">$</span>hhsize) <span class="sc">/</span> <span class="fu">sum</span>(data_baseline<span class="sc">$</span>hhsize)</span>
+<span id="cb44-15"><a href="chapitre-ii.-application-pratique.html#cb44-15" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="chapitre-ii.-application-pratique.html#cb44-16" tabindex="-1"></a><span class="co"># Calcul du coefficient de Gini initial</span></span>
+<span id="cb44-17"><a href="chapitre-ii.-application-pratique.html#cb44-17" tabindex="-1"></a>gini_initial <span class="ot">&lt;-</span> <span class="fu">ineq</span>(data_baseline<span class="sc">$</span>pcexp, <span class="at">type =</span> <span class="st">&quot;Gini&quot;</span>)</span>
+<span id="cb44-18"><a href="chapitre-ii.-application-pratique.html#cb44-18" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="chapitre-ii.-application-pratique.html#cb44-19" tabindex="-1"></a><span class="co"># Affichage des indices initiaux</span></span>
+<span id="cb44-20"><a href="chapitre-ii.-application-pratique.html#cb44-20" tabindex="-1"></a>indices_initiaux <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb44-21"><a href="chapitre-ii.-application-pratique.html#cb44-21" tabindex="-1"></a>  <span class="at">Indicateur =</span> <span class="fu">c</span>(<span class="st">&quot;Incidence (FGT0)initial&quot;</span>, <span class="st">&quot;Profondeur (FGT1)initial&quot;</span>, <span class="st">&quot;Sévérité (FGT2)initial&quot;</span>, <span class="st">&quot;Giniinitial&quot;</span>),</span>
+<span id="cb44-22"><a href="chapitre-ii.-application-pratique.html#cb44-22" tabindex="-1"></a>  <span class="at">Valeur =</span> <span class="fu">c</span>(fgt0_initial, fgt1_initial, fgt2_initial, gini_initial)</span>
+<span id="cb44-23"><a href="chapitre-ii.-application-pratique.html#cb44-23" tabindex="-1"></a>)</span></code></pre></div>
+<p><em>Remarque sur la présentation du tableau précédent</em></p>
+<p>Le tableau précédent a été présenté sous forme de dataframe car <code>gtsummary</code> n’est pas spécifiquement conçu pour afficher des tableaux déjà calculés ligne par ligne. En effet, gtsummary est principalement destiné à résumer des données brutes, notamment via des statistiques descriptives ou des analyses bivariées.</p>
+<p>Ainsi, si l’on souhaite présenter de manière élégante des résultats déjà agrégés (tels que des indices FGT ou un coefficient de Gini), il est souvent préférable d’utiliser des packages comme gt() ou flextable(), qui sont plus adaptés à ce type de mise en forme.</p>
+<div id="etdxanlqjh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#etdxanlqjh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#etdxanlqjh thead, #etdxanlqjh tbody, #etdxanlqjh tfoot, #etdxanlqjh tr, #etdxanlqjh td, #etdxanlqjh th {
+  border-style: none;
+}
+
+#etdxanlqjh p {
+  margin: 0;
+  padding: 0;
+}
+
+#etdxanlqjh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#etdxanlqjh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#etdxanlqjh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#etdxanlqjh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#etdxanlqjh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#etdxanlqjh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#etdxanlqjh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#etdxanlqjh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#etdxanlqjh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#etdxanlqjh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#etdxanlqjh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#etdxanlqjh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#etdxanlqjh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#etdxanlqjh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#etdxanlqjh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#etdxanlqjh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#etdxanlqjh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#etdxanlqjh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#etdxanlqjh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#etdxanlqjh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#etdxanlqjh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#etdxanlqjh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#etdxanlqjh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#etdxanlqjh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#etdxanlqjh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#etdxanlqjh .gt_left {
+  text-align: left;
+}
+
+#etdxanlqjh .gt_center {
+  text-align: center;
+}
+
+#etdxanlqjh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#etdxanlqjh .gt_font_normal {
+  font-weight: normal;
+}
+
+#etdxanlqjh .gt_font_bold {
+  font-weight: bold;
+}
+
+#etdxanlqjh .gt_font_italic {
+  font-style: italic;
+}
+
+#etdxanlqjh .gt_super {
+  font-size: 65%;
+}
+
+#etdxanlqjh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#etdxanlqjh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#etdxanlqjh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#etdxanlqjh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#etdxanlqjh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#etdxanlqjh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#etdxanlqjh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#etdxanlqjh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#etdxanlqjh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border" style><span class='gt_from_md'><strong>Tableau – Indices de pauvreté et d’inégalités (Scénario de base)</strong></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Indicateur">Indicateur</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Valeur">Valeur</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Indicateur" class="gt_row gt_left">Incidence (FGT0)initial</td>
+<td headers="Valeur" class="gt_row gt_right">0.390</td></tr>
+    <tr><td headers="Indicateur" class="gt_row gt_left">Profondeur (FGT1)initial</td>
+<td headers="Valeur" class="gt_row gt_right">0.116</td></tr>
+    <tr><td headers="Indicateur" class="gt_row gt_left">Sévérité (FGT2)initial</td>
+<td headers="Valeur" class="gt_row gt_right">0.048</td></tr>
+    <tr><td headers="Indicateur" class="gt_row gt_left">Giniinitial</td>
+<td headers="Valeur" class="gt_row gt_right">0.403</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+<div id="résultats-des-simulations" class="section level4 hasAnchor">
+<h4>Résultats des simulations<a href="chapitre-ii.-application-pratique.html#résultats-des-simulations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><em>Tableau comparatif des scénarios avec l’option 1 : gt()</em></p>
+<div id="pvsuzjyxry" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pvsuzjyxry table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pvsuzjyxry thead, #pvsuzjyxry tbody, #pvsuzjyxry tfoot, #pvsuzjyxry tr, #pvsuzjyxry td, #pvsuzjyxry th {
+  border-style: none;
+}
+
+#pvsuzjyxry p {
+  margin: 0;
+  padding: 0;
+}
+
+#pvsuzjyxry .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pvsuzjyxry .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pvsuzjyxry .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pvsuzjyxry .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pvsuzjyxry .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pvsuzjyxry .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pvsuzjyxry .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pvsuzjyxry .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pvsuzjyxry .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pvsuzjyxry .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pvsuzjyxry .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pvsuzjyxry .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pvsuzjyxry .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pvsuzjyxry .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pvsuzjyxry .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pvsuzjyxry .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pvsuzjyxry .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pvsuzjyxry .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pvsuzjyxry .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pvsuzjyxry .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pvsuzjyxry .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pvsuzjyxry .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pvsuzjyxry .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pvsuzjyxry .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pvsuzjyxry .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pvsuzjyxry .gt_left {
+  text-align: left;
+}
+
+#pvsuzjyxry .gt_center {
+  text-align: center;
+}
+
+#pvsuzjyxry .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pvsuzjyxry .gt_font_normal {
+  font-weight: normal;
+}
+
+#pvsuzjyxry .gt_font_bold {
+  font-weight: bold;
+}
+
+#pvsuzjyxry .gt_font_italic {
+  font-style: italic;
+}
+
+#pvsuzjyxry .gt_super {
+  font-size: 65%;
+}
+
+#pvsuzjyxry .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pvsuzjyxry .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pvsuzjyxry .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pvsuzjyxry .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pvsuzjyxry .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pvsuzjyxry .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pvsuzjyxry .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pvsuzjyxry .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pvsuzjyxry div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="7" class="gt_heading gt_title gt_font_normal" style>Comparaison des scénarios de transfert monétaire</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Impact sur la pauvreté et les inégalités</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Scénario">Scénario</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="FGT0-(Incidence)">FGT0 (Incidence)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="FGT1-(Profondeur)">FGT1 (Profondeur)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="FGT2-(Sévérité)">FGT2 (Sévérité)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gini">Gini</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Coût-total-(FCFA)">Coût total (FCFA)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Efficacité">Efficacité</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Scénario" class="gt_row gt_left">Universel</td>
+<td headers="FGT0 (Incidence)" class="gt_row gt_right">35.4%</td>
+<td headers="FGT1 (Profondeur)" class="gt_row gt_right">9.9%</td>
+<td headers="FGT2 (Sévérité)" class="gt_row gt_right">3.8%</td>
+<td headers="Gini" class="gt_row gt_right">0.3946771</td>
+<td headers="Coût total (FCFA)" class="gt_row gt_right">F717,600,000</td>
+<td headers="Efficacité" class="gt_row gt_right">0.280</td></tr>
+    <tr><td headers="Scénario" class="gt_row gt_left">Rural</td>
+<td headers="FGT0 (Incidence)" class="gt_row gt_right">36.5%</td>
+<td headers="FGT1 (Profondeur)" class="gt_row gt_right">10.3%</td>
+<td headers="FGT2 (Sévérité)" class="gt_row gt_right">4.0%</td>
+<td headers="Gini" class="gt_row gt_right">0.3940861</td>
+<td headers="Coût total (FCFA)" class="gt_row gt_right">F383,800,000</td>
+<td headers="Efficacité" class="gt_row gt_right">0.393</td></tr>
+    <tr><td headers="Scénario" class="gt_row gt_left">Femme chef</td>
+<td headers="FGT0 (Incidence)" class="gt_row gt_right">38.5%</td>
+<td headers="FGT1 (Profondeur)" class="gt_row gt_right">11.3%</td>
+<td headers="FGT2 (Sévérité)" class="gt_row gt_right">4.6%</td>
+<td headers="Gini" class="gt_row gt_right">0.4011870</td>
+<td headers="Coût total (FCFA)" class="gt_row gt_right">F107,500,000</td>
+<td headers="Efficacité" class="gt_row gt_right">0.289</td></tr>
+    <tr><td headers="Scénario" class="gt_row gt_left">Polygames</td>
+<td headers="FGT0 (Incidence)" class="gt_row gt_right">38.0%</td>
+<td headers="FGT1 (Profondeur)" class="gt_row gt_right">11.0%</td>
+<td headers="FGT2 (Sévérité)" class="gt_row gt_right">4.4%</td>
+<td headers="Gini" class="gt_row gt_right">0.3998966</td>
+<td headers="Coût total (FCFA)" class="gt_row gt_right">F157,200,000</td>
+<td headers="Efficacité" class="gt_row gt_right">0.430</td></tr>
+    <tr><td headers="Scénario" class="gt_row gt_left">Handicap</td>
+<td headers="FGT0 (Incidence)" class="gt_row gt_right">38.8%</td>
+<td headers="FGT1 (Profondeur)" class="gt_row gt_right">11.5%</td>
+<td headers="FGT2 (Sévérité)" class="gt_row gt_right">4.7%</td>
+<td headers="Gini" class="gt_row gt_right">0.4023514</td>
+<td headers="Coût total (FCFA)" class="gt_row gt_right">F41,300,000</td>
+<td headers="Efficacité" class="gt_row gt_right">0.300</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><em>Tableau comparatif des scénarios avec l’option 2 : flextable()</em></p>
+<div class="tabwid"><style>.cl-f4f9b024{}.cl-f4ea0962{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f4efd2a2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f4efd2ac{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f4f00786{width:1.134in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f0079a{width:1.474in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007a4{width:1.576in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007a5{width:1.38in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007a6{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007ae{width:1.482in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007af{width:1.134in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007b8{width:1.474in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007b9{width:1.576in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007c2{width:1.38in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007c3{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007cc{width:1.482in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007cd{width:1.134in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007d6{width:1.474in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007e0{width:1.576in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007ea{width:1.38in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007eb{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007ec{width:1.482in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007f4{width:1.134in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007fe{width:1.474in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f007ff{width:1.576in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f00800{width:1.38in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f00808{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4f00809{width:1.482in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-f4f9b024'>
+<caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;"><span id="tab:unnamed-chunk-22">Table 3: </span><span>Comparaison des scénarios de transfert monétaire</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-f4f00786"><p class="cl-f4efd2a2"><span class="cl-f4ea0962">Scénario</span></p></th><th class="cl-f4f0079a"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">FGT0 (Incidence)</span></p></th><th class="cl-f4f007a4"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">FGT1 (Profondeur)</span></p></th><th class="cl-f4f007a5"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">FGT2 (Sévérité)</span></p></th><th class="cl-f4f007a6"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">Gini</span></p></th><th class="cl-f4f007ae"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">Coût total (FCFA)</span></p></th><th class="cl-f4f007a6"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">Efficacité</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f4f007af"><p class="cl-f4efd2a2"><span class="cl-f4ea0962">Universel</span></p></td><td class="cl-f4f007b8"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3536606</span></p></td><td class="cl-f4f007b9"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.09854293</span></p></td><td class="cl-f4f007c2"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.03816320</span></p></td><td class="cl-f4f007c3"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3946771</span></p></td><td class="cl-f4f007cc"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">717,600,000</span></p></td><td class="cl-f4f007c3"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.2795121</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4f007af"><p class="cl-f4efd2a2"><span class="cl-f4ea0962">Rural</span></p></td><td class="cl-f4f007b8"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3648742</span></p></td><td class="cl-f4f007b9"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.10289152</span></p></td><td class="cl-f4f007c2"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.04043923</span></p></td><td class="cl-f4f007c3"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3940861</span></p></td><td class="cl-f4f007cc"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">383,800,000</span></p></td><td class="cl-f4f007c3"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3929103</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4f007af"><p class="cl-f4efd2a2"><span class="cl-f4ea0962">Femme chef</span></p></td><td class="cl-f4f007b8"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3848552</span></p></td><td class="cl-f4f007b9"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.11334728</span></p></td><td class="cl-f4f007c2"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.04627177</span></p></td><td class="cl-f4f007c3"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.4011870</span></p></td><td class="cl-f4f007cc"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">107,500,000</span></p></td><td class="cl-f4f007c3"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.2893988</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4f007cd"><p class="cl-f4efd2a2"><span class="cl-f4ea0962">Polygames</span></p></td><td class="cl-f4f007d6"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3803957</span></p></td><td class="cl-f4f007e0"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.11016572</span></p></td><td class="cl-f4f007ea"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.04440902</span></p></td><td class="cl-f4f007eb"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3998966</span></p></td><td class="cl-f4f007ec"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">157,200,000</span></p></td><td class="cl-f4f007eb"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.4295813</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4f007f4"><p class="cl-f4efd2a2"><span class="cl-f4ea0962">Handicap</span></p></td><td class="cl-f4f007fe"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.3875395</span></p></td><td class="cl-f4f007ff"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.11498352</span></p></td><td class="cl-f4f00800"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.04730807</span></p></td><td class="cl-f4f00808"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.4023514</span></p></td><td class="cl-f4f00809"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">41,300,000</span></p></td><td class="cl-f4f00808"><p class="cl-f4efd2ac"><span class="cl-f4ea0962">0.2997606</span></p></td></tr></tbody></table></div>
+<p>Bien que les tableaux permettent une présentation rigoureuse et détaillée des résultats, ils peuvent parfois rendre l’interprétation moins intuitive, surtout pour des publics non spécialisés. Ainsi, afin de mieux visualiser l’impact des différentes politiques de transfert et faciliter la comparaison entre scénarios, des représentations graphiques ont été ajoutées dans la suite.
+Ces graphiques offrent une lecture plus directe et synthétique des principaux résultats, tout en conservant la robustesse analytique présentée dans les tableaux précédents.</p>
+</div>
+<div id="comparaison-des-différents-scénarios" class="section level4 hasAnchor">
+<h4>Comparaison des différents scénarios<a href="chapitre-ii.-application-pratique.html#comparaison-des-différents-scénarios" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="GTSUMMARYBook_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+<div id="conclusion" class="section level4 hasAnchor">
+<h4>Conclusion<a href="chapitre-ii.-application-pratique.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>L’analyse comparative des différents scénarios de transfert monétaire à l’aide du package <code>gtsummary</code> nous a permis d’obtenir des résultats clairs et bien présentés. Les principales conclusions sont :</p>
+<ul>
+<li><p>Le ciblage universel est le plus efficace en termes d’impact brut avec une forte réduction de la pauvreté FGT0 : 0.354 (vs 0.390), FGT1 : 0.099, FGT2 : 0.038, Gini : 0.395,mais cela se fait au prix du coût le plus élevé : 717 600 000 FCFA, pour une efficacité modérée (27.95 %).</p></li>
+<li><p>Le ciblage polygame est le plus efficient (Efficacité : 42.96 %, coût : 157 200 000 FCFA),avec une réduction notable des indices (FGT1 : 0.110 vs 0.116, FGT2 : 0.044).</p></li>
+<li><p>Le ciblage rural constitue une stratégie équilibrée avec un impact significatif (FGT1 : 0.103), un coût raisonnable : 383 800 000 FCFA et bonne efficacité : 39.29 %.</p></li>
+</ul>
+<p>Des scénarios combinés comme rural + femme chef ou polygame + présence d’handicapés pourraient permettre une réduction significative de la pauvreté à moindre coût, tout en assurant une meilleure ciblage des plus vulnérables.</p>
+</div>
+</div>
+<div id="annexe-définitions-et-formules" class="section level3 hasAnchor">
+<h3>Annexe : Définitions et formules<a href="chapitre-ii.-application-pratique.html#annexe-définitions-et-formules" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Indices FGT (Foster-Greer-Thorbecke) :</p>
+<ul>
+<li>FGT0 (Incidence) : Proportion de la population vivant sous le seuil de pauvreté</li>
+</ul>
+<p><span class="math display">\[FGT_0 = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}(pcexp_i &lt; z)\]</span>
+- FGT1 (Profondeur) : Écart moyen normalisé entre le revenu des pauvres et le seuil de pauvreté</p>
+<p><span class="math display">\[FGT_1 = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{z - pcexp_i}{z} \right) \mathbf{1}(pcexp_i &lt; z)\]</span></p>
+<ul>
+<li>FGT2 (Sévérité) : Moyenne des carrés des écarts normalisés, donnant plus de poids aux plus pauvres</li>
+</ul>
+<p><span class="math display">\[FGT_2 = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{z - pcexp_i}{z} \right)^2 \mathbf{1}(pcexp_i &lt; z)\]</span></p>
+<p>Coefficient de Gini : Mesure de l’inégalité de la distribution des revenus au sein d’une hhsizeulation (0 = égalité parfaite, 1 = inégalité maximale)</p>
+<p><span class="math display">\[G = \frac{\sum_{i=1}^{N} \sum_{j=1}^{N} |pcexp_i - pcexp_j|}{2 N^2 \bar{pcexp}}\]</span></p>
+<p>où :</p>
+<ul>
+<li><p><span class="math inline">\(N\)</span> est la population totale,</p></li>
+<li><p><span class="math inline">\(pcexp_i\)</span> est la dépense de consommation par tête du ménage <span class="math inline">\(\( i \)\)</span>,</p></li>
+<li><p><span class="math inline">\(z\)</span> est le seuil de pauvreté,</p></li>
+<li><p><span class="math inline">\(\mathbf{1}(pcexp_i &lt; z)\)</span> est une fonction indicatrice qui vaut 1 si <span class="math inline">\(pcexp_i &lt; z\)</span>, sinon 0,</p></li>
+<li><p><span class="math inline">\(\bar{pcexp}\)</span> est la moyenne des dépenses de consommation par tête.</p></li>
+<li><p>Efficacité du transfert : Ratio entre la réduction du gap de pauvreté et le coût total du programme de transfert</p></li>
+</ul>
+<!-------------------------------------------FIN DE SCRIPT - Chapitre 2------------------------------------->
+
+</div>
+</div>
+</div>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pied de page personnalisé</title>
+</head>
+<body>
+
+  <div class="book-footer">
+    © Avril 2025 ENSAE Dakar - TP10 : Tableaux avec gtsummary | Réalisé par Mlle Awa DIAW et M. Paulinah RASAMOELINA | Dans le cadre du cours Projet statistique avec R
+  </div>
+
+</body>
+</html>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapitre-i.-les-principales-fonctions-de-gtsummary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
