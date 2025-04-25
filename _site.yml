@@ -1,0 +1,8 @@
+name: "TableauxAvecGtsummary_ISE1_2025"
+title: "Tableaux Avec Gtsummary - Projet ISE1 2025"
+output_dir: "_book"
+output:
+  bookdown::gitbook:
+    css: style.css
+    split_by: chapter
+    number_sections: true
