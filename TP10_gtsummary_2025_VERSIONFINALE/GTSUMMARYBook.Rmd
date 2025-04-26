@@ -1,0 +1,1104 @@
+---
+title: ""
+author: "Awa D"
+date: "24/03/2025"
+output: html_document
+site: bookdown::bookdown_site
+documentclass: book
+---
+
+# .🧭
+
+<!-- Centrer les logos et le texte -->
+<div style="text-align: center;">
+
+<!-- Logos -->
+<img src="images/LOGO1.jpeg" width="150" style="margin-right: 20px;"> <br>
+<img src="images/LOGO2.jpeg" width="100" style="margin-right: 20px;"> <br>
+<i>Agence nationale de la Statistique et de la Démographie (ANSD)</i> <br>
+<img src="images/LOGO3.jpeg" width="60"> <br>
+<i>Ecole nationale de la Statistique et de l'Analyse économique Pierre Ndiaye (ENSAE)</i> <br>
+<br><br>
+
+<!-- Titre du projet -->
+<p style="font-size: 28px; font-weight: bold; color: blue;">
+Semestre 2 : Projet statistique avec R
+</p>
+
+<p style="font-size: 22px; font-weight: bold;">
+ TP10 - Thème 9 - Groupe 8
+</p>
+
+<p style="font-size: 28px; font-weight: bold; color: blue;">
+Tableaux avec GTSUMMARY
+</p>
+
+<img src="images/gtsummary.png" width="150" style="margin-right: 20px;"> <br>
+
+
+<!-- Informations sur les rédacteurs -->
+<p style="font-size: 18px;">
+<i>Rédigé par :</i> <br>
+<b>RASAMOELINA Nihaviana Albert Paulinah</b> et <b>DIAW AWA</b> <br>
+<i>Respectivement Élèves en ISE1 Eco et ISE 1 cycle long</i>
+</p>
+
+<br>
+
+<!-- Superviseur -->
+<p style="font-size: 18px;">
+<i>Sous la supervision de :</i> <br>
+<b>M. Aboubacar HEMA</b> <br>
+<i>Research Analyst</i>
+</p>
+
+<br>
+
+<!-- Année scolaire -->
+<p style="font-size: 20px; font-weight: bold;">
+Année scolaire : 2024/2025
+</p>
+
+</div>
+
+<!----------------------------------FIN DE SCRIPT - Page de garde---------------------------------------->
+
+<!--chapter:end:index.Rmd-->
+
+---
+title: "Untitled"
+author: "Awa D"
+date: "24/03/2025"
+output: html_document
+---
+
+
+# DECHARGE
+
+Les auteurs de ce rapport tiennent à préciser que ce document a été réalisé dans un cadre académique. Ils assument l'entière responsabilité de son contenu. Cela dit, ni l’Ecole nationale de la Statistique et de l’Analyse économique Pierre Ndiaye (ENSAE) ni l’Agence nationale de la Statistique et de la Démographie (ANSD) ne sauraient être tenus responsables d’éventuelles erreurs ou interprétations contenues dans ce travail.
+
+
+<!-----------------------------------------FIN DE SCRIPT DECHARGE---------------------------------------------->
+
+<!--chapter:end:decharge.Rmd-->
+
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+# AVANT-PROPOS
+
+Ce rapport s’inscrit dans le cadre d'une présentation sanctionnant la fin du cours de Projet statistique avec R.  
+À l’issue de ce cours, il nous a été demandé de travailler sur les tableaux avec gtsummary, en mobilisant les connaissances acquises.  
+
+Ici, nous ne nous arrêterons pas uniquement aux codes, mais nous appliquerons les règles d'un bon script, notamment :  
+
+- Utilisation de références relatives pour un code bien structuré.  
+
+- Commentaires clairs pour expliquer chaque section du code et noms de chunks explicite.  
+- Illustrations avec des exemples concrets pour faciliter la compréhension.
+
+- Rédaction du rapport avec Bookdown, insertion de formules mathématiques, des applications issues des précédents TPs. 
+
+L'objectif principal est d'appliquer au mieux les connaissances acquises au cours du semestre.  
+
+Nous tenons à exprimer notre profonde gratitude à l’ANSD ainsi qu’à toute l’équipe pédagogique de l’ENSAE pour les conditions d’apprentissage mises à notre disposition.  
+
+Nous adressons également nos sincères remerciements à M. Aboubacar HEMA, notre professeur de Projet Statistique avec R, pour son encadrement et ses enseignements.  
+
+Enfin, nous remercions chaleureusement nos camarades de classe pour leur collaboration et les échanges enrichissants qui ont jalonné ce projet.  
+
+<!-----------------------------------------FIN DE SCRIPT - A PROPOS---------------------------------------------->
+
+<!--chapter:end:avant-propos.Rmd-->
+
+---
+title: ""
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+# INTRODUCTION
+
+Le package gtsummary calcule des statistiques descriptives pour les variables continues, catégorielles et dichotomiques dans R, et présente les résultats dans un tableau de synthèse attrayant et personnalisable, prêt à être publié.
+
+- gt : fait référence au package `gt`, qui signifie "Grammar of Tables" (la grammaire des tableaux).
+Ce package permet de créer des tableaux élégants, lisibles et personnalisables dans R – un peu comme ce que ggplot2 fait pour les graphiques.
+
+- summary : fait référence aux statistiques descriptives. Le cœur du package est de générer des résumés statistiques professionnels : descriptifs simples, par groupe, ou encore résultats de modèles.
+
+Donc gtsummary = "résumés statistiques présentés sous forme de tableaux propres et soignés"
+
+
+Ce bookdown guide le lecteur et nous y verrons :
+
+- Une introduction aux fonctions clés de `gtsummary` ainsi que leurs paramètres.
+
+- Un cas pratique.
+
+Avant de commencer, installez et chargez le package `gtsummary`.
+
+```{r introInstallGtsummary, echo=TRUE, eval=FALSE}
+install.packages("gtsummary")
+library(gtsummary)
+```
+
+Vous pouvez déjà importer votre jeu de données...
+
+```{r IntroImportDataset, echo=TRUE, eval=FALSE}
+
+# IMPORTATION DE NOTRE JEU DE DONNEES
+library(readr)
+dataset <- read_csv("data/ehcvm_welfare_2b_bfa2021.csv")
+```
+
+
+
+<!---------------------------------------FIN DE SCRIPT - INTRODUCTION-------------------------------------------->
+
+<!--chapter:end:introduction.Rmd-->
+
+---
+title: " "
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+
+# CHAPITRE I. LES PRINCIPALES FONCTIONS DE GTSUMMARY
+
+Il existe quatre principales manières de personnaliser la sortie du tableau récapitulatif :
+
+- Utilisation des arguments de la fonction `tbl_summary()`
+
+- Ajout d'informations supplémentaires avec les fonctions `add_()`
+
+- Fonctions de personnalisation du tableau
+
+- Les thèmes gtsummary
+
+Et il est possible d'exporter les tableaux vers différents formats.
+
+
+
+## 0. Préambule sur les opérateurs de pipe
+
+<img src="images/pipes.jpg" width="150" style="margin-right: 20px;"> <br>
+
+Avant d'explorer les fonctionnalités de gtsummary, il est utile de comprendre les opérateurs pipe qui facilitent l'écriture de code dans R :
+
+- Opérateur natif |>
+
+Introduit dans R 4.1.0 (2021), l’opérateur |> permet de simplifier l’écriture des chaînes de traitement. Il envoie la valeur située à sa gauche comme premier argument à la fonction à sa droite. Par exemple :
+
+```{r OperateurNatif, echo=TRUE, eval=FALSE, include=TRUE}
+result <- data |> head(10)
+```
+équivaut à :
+```{r OperateurNatifEquivalent, echo=TRUE, eval=FALSE, include=TRUE}
+result <- head(data, 10)
+```
+
+- Pipe du tidyverse %>%
+
+Provenant du package magrittr (et souvent utilisé via dplyr ou tidyverse), %>% permet également de chaîner des opérations. Ce pipe est particulièrement flexible et permet d’insérer des appels de fonctions de manière plus naturelle. Par exemple :
+
+```{r OperateurTidyverse, echo=TRUE, eval=FALSE, include=TRUE}
+library(dplyr)
+result <- data %>% 
+  filter(age > 30) %>% 
+  summarise(mean_age = mean(age, na.rm = TRUE))
+```
+équivaut à : 
+
+```{r OperateurTidyverseEquivalent, echo=TRUE, eval=FALSE, include=TRUE}
+filtered_data <- filter(data, age > 30)
+result <- summarise(filtered_data, mean_age = mean(age, na.rm = TRUE))
+```
+
+Les deux pipes offrent une syntaxe fluide et lisible. La différence majeure réside dans la compatibilité avec d’autres packages et dans certaines subtilités syntaxiques, mais dans la pratique, ils remplissent le même rôle.
+
+## 1. Utilisation des arguments de la fonction tbl_summary()
+
+**Description :**  
+Cette fonction peut prendre, au minimum, un data frame comme seul argument d'entrée et renvoie, dans ce cas, des statistiques descriptives pour chaque colonne du data frame.
+```{r Chap1ImportDataset, echo=FALSE,warning=FALSE}
+
+# IMPORTATION
+library(readr)
+dataset <- read_csv("data/ehcvm_welfare_2b_bfa2021.csv")
+#View(dataset)
+#head(dataset)
+#names(dataset)
+```
+
+```{r Chap1UsinggtsummaryNoInclude,eval=F, echo=T,warning=FALSE }
+library(gtsummary)
+dataset |> tbl_summary()
+```
+
+**Arguments clés :** 
+
+La fonction tbl_summary() propose plusieurs options pour modifier l'apparence du tableau récapitulatif. Voici un aperçu des principaux arguments :
+
+| Argument | Description |
+|---------|-------------|
+| `type` |	Définit le type de variable (ex. : continue, catégorielle, etc.)|
+| `sort` |	Trie les niveaux d’une variable catégorielle par fréquence|
+| `percent` |	Définit si les pourcentages doivent être affichés par colonne, ligne ou cellule|
+| `by` | Permet de stratifier les statistiques selon une variable spécifique (par exemple, pour comparer les groupes)|
+| `label` | Personnalise les étiquettes affichées pour les variables |
+| `statistic` | Définit les statistiques à afficher pour chaque variable, en utilisant souvent la syntaxe {glue} (ex. : `"{mean} ({sd})"`)|
+| `digits` | Spécifie le nombre de décimales à utiliser pour l’affichage des statistique|
+| `missing` | Indique s’il faut afficher une ligne avec le nombre de valeurs manquantes ("ifany" : Affichage explicite des valeurs manquantes si elles existent)|
+| `include` | Liste des variables à inclure dans le tableau|
+
+**Exemple de script :**
+
+```{r chap1tbl_summary_examplesimple,warning=FALSE}
+library(gtsummary)
+tbl_summary_examplesimple <- dataset %>%
+  tbl_summary(
+    by = hgender,  # Stratification : les statistiques sont calculées séparément pour chaque sexe
+    include = hage,  # Seule 'hage' est dans le tableau
+    label = hage ~ "Age du chef de ménage",  
+    statistic = all_continuous() ~ "{mean} ({sd})",  # Pour les variables continues, afficher la moyenne et l'écart-type
+    digits = all_continuous() ~ 2,  # Val num avec 2 décimales
+    missing = "ifany"  # Affichage explicite des valeurs manquantes si elles existent
+  )
+# Affichage du tableau
+tbl_summary_examplesimple
+```
+Exemple d'interprétation : 
+
+- L’échantillon est dominé par des hommes, qui représentent la grande majorité des chefs de ménage (6 101 contre 1 075).
+- En moyenne, les chefs de ménage féminins sont plus âgés (48 ans) que les chefs de ménage masculins (45 ans).
+- De plus, la variabilité de l'âge des chefs de ménage est légèrement plus élevée chez les femmes (15.37  contre 14.50).
+
+Allons plus loin en incluant plusieurs variables dans notre tableau ...
+
+```{r chap1tbl_summary_example, echo=TRUE, eval=TRUE}
+# Création d'un tableau de synthèse stratifié par la variable 'hage'
+tbl_summary_example <- dataset %>%
+  tbl_summary(
+    by = hgender,  
+    include = c(hage, hhsize, hmstat, hreligion, hdiploma, hhandig),  # Toutes ces variables seront incluses dans le tableau
+    label = list(
+      hage ~ "Âge du chef de ménage",  
+      hhsize ~ "Taille du ménage",  
+      hmstat ~ "Statut matrimonial du chef de ménage", 
+      hreligion ~ "Religion",  
+      hdiploma ~ "Plus haut diplôme du chef de ménage", 
+      hhandig ~ "Des handicapés dans le ménage ?"  
+    ),  
+    statistic = all_continuous() ~ "{mean} ({sd})",  
+    digits = all_continuous() ~ 2,  
+    missing = "ifany"  
+  )
+
+# Affichage du tableau
+tbl_summary_example
+```
+
+
+## 2. Ajout d'informations supplémentaires avec les fonctions add_()
+
+### a. add_overall()
+
+**Description :**  
+Ajoute une colonne contenant les statistiques globales (non stratifiées), en complément de celles affichées par groupe.
+
+**Paramètres importants :**
+
+- **last** : Positionne la colonne globale à la fin du tableau (TRUE/FALSE).
+- **col_label** : Permet de personnaliser l’intitulé de la colonne globale.
+
+**Exemple de script :**
+
+```{r chap1tbl_summary_overall, echo=TRUE, eval=TRUE}
+tbl_summary_overall <- tbl_summary_example %>%
+  add_overall(
+    last = TRUE,
+    col_label = "**Colonne des totaux ajouté** {N}"
+  )
+
+tbl_summary_overall
+```
+Exemple d'interprétation : 
+
+- L'échantillon total comprend 7,176 chefs de ménage.
+- L'âge moyen global est 45.68 ans tandis que l'écart-type global est 14.67 ans.
+
+### b. add_n()
+
+**Description :**  
+Ajoute une colonne indiquant le nombre d’observations (ou le nombre d’observations non manquantes) pour chaque variable.
+
+**Paramètres importants :**
+
+- **col_label** : Modifie l’intitulé de la colonne.
+- **statistic** : Permet de définir le format d’affichage des effectifs.
+- **footnote** : Ajoute une note de bas de tableau explicative.
+
+**Exemple de script :**
+
+```{r chap1tbl_summary_with_n, echo=TRUE, eval=TRUE, include=TRUE}
+tbl_summary_with_n <- tbl_summary_example %>%
+  add_n(
+    col_label = "**Effectif**",  # Intitulé de la colonne
+    statistic = "{N_nonmiss}",  # {p_miss}ou {N}...
+  ) %>%
+  modify_table_styling(
+    columns = everything(),
+    footnote = "Nbre d'observations non manquantes"
+  )
+
+# Afficher le tableau final
+tbl_summary_with_n
+```
+
+Dans cet exemple, nous avons utilisé uniquement les fonctions add_n() et add_overall() pour enrichir notre tableau de synthèse. 
+
+Cependant, il existe d'autres fonctions comme add_p() pour ajouter des p-values pour comparer les groupes, add_difference() pour calculer la différence entre deux groupes avec l'intervalle de confiance et la p-value associée, ou encore add_stat_label() pour ajouter des étiquettes aux statistiques affichées. Nous n'avons pas utilisé ces fonctions ici, car elles nécessitent la mise en œuvre de tests statistiques, ce que nous n'avons pas encore couvert dans le cadre de notre formation. 
+
+## 3. Fonctions de personnalisation du tableau
+
+Ces fonctions de formatage de table proposées par `gtsummary` permettent de modifier l’aspect du tableau après sa création.
+
+- modify_header() : Met à jour les en-têtes de colonnes.
+
+```{r chap1modifyheader, echo=TRUE, eval=TRUE, include=TRUE}
+# Modifier les en-têtes des colonnes
+tbl_summary_modified <- tbl_summary_example %>%
+  modify_header(label~ "Nom de variables",stat_1 ~ "**Femmes**",  
+                # Personnaliser l'en-tête de la col des var,
+                #de la 1ere colonne des statistiques
+    stat_2 ~ "**Hommes**"  # pour la 2e
+    )
+
+# Afficher le tableau modifié
+tbl_summary_modified
+```
+
+| Autres paramètres | Description |
+|---------|-------------|
+| modify_footnote_header() | Met à jour la note de bas de colonne dans l'en-tête|
+| modify_footnote_body() | Met à jour la note de bas de colonne dans le corps du tableau|
+| modify_spanning_header() | Met à jour les en-têtes englobants (spanning headers)|
+| modify_caption() | Met à jour la légende du tableau (titre)|
+| bold_labels() | Met en gras les étiquettes des variables|
+| bold_levels() | Met en gras les niveaux des variables|
+| italicize_labels() | Met en italique les étiquettes des variables|
+| italicize_levels() | Met en italique les niveaux des variables|
+| bold_p() | Met en gras les p-values significatives|
+
+
+```{r chap1tabpersoall, echo=TRUE, eval=TRUE, include=TRUE}
+# Créer le tableau de synthèse personnalisé
+tbl_summary_personalized <- dataset %>%
+  tbl_summary(
+    by = hmstat,
+    include = c(hage, hhsize)  # Sélection des variables
+  ) %>%
+  add_overall() %>%  # Ajouter une colonne avec les statistiques globales
+  add_n() %>%  # Ajouter une colonne avec N (ou N manquants)
+  modify_header(label ~ "**Variables d'interet**") %>%  # Modifier l'en-tête des variables
+  modify_spanning_header(c("stat_1", "stat_2","stat_3", "stat_4" ,"stat_5", "stat_6", "stat_7") ~ "**Etat matrimonial**") %>%  # En-têtes englobants
+  modify_caption("Tableau modifié. Personnalisation") %>%  # Légende
+  bold_labels() %>%  # Mettre en gras les étiquettes des variables
+  italicize_labels() 
+# Afficher le tableau modifié
+tbl_summary_personalized
+
+```
+
+- Combinaison des tableaux avec tbl_merge() et tbl_stack()
+
+*Combinaison de tableaux avec tbl_merge()*
+
+La fonction tbl_merge() permet de fusionner plusieurs tableaux en un seul en ajoutant des colonnes provenant de différents tableaux.
+
+Dans cet exemple, nous allons combiner 2 tableaux en un seul tableau avec tbl_merge().
+
+```{r chap1tablecombined, echo=TRUE, eval=TRUE}
+
+tbl_1 <- dataset %>%
+  tbl_summary(by = milieu, include = c(hage, hhsize))
+
+tbl_2 <- dataset %>%
+  tbl_summary(by = hgender, include = c(hage, hhsize))
+
+# Fusionner les deux tableaux dans une liste
+tbl_combined <- tbl_merge(
+  list(tbl_1, tbl_2), 
+  tab_spanner = c("Tableau 1 - Par milieu de résidence", "Tableau 2 - Par sexe")
+)%>%
+modify_header(label~ "Nom de variables/Modalités")
+
+# Afficher le tableau fusionné
+tbl_combined
+```
+
+*Combinaison de tableaux avec tbl_stack()*
+
+La fonction tbl_stack() permet d'empiler plusieurs tableaux gtsummary verticalement. Cela signifie que les lignes des différents tableaux sont combinées en un seul tableau. Attention : les entêtes de colonnes doivent correspondre. Si ce n’est pas le cas,
+seules les entêtes du premier tableau sont conservées dans le tableau final
+
+Dans cet exemple, nous allons empiler deux tableaux créés avec tbl_summary().
+
+```{r chap1tablestacked, echo=TRUE, eval=TRUE}
+# Créer deux tableaux de statistiques descriptives
+tbl_1 <- dataset %>%
+  tbl_summary(by = milieu, include = c(hage, hhsize))
+tbl_2 <- dataset %>%
+  tbl_summary(by = hgender, include = c(hage, hhsize))
+
+# Empiler les deux tableaux verticalement
+tbl_stacked <- tbl_stack(
+  tbls = list(tbl_1, tbl_2),  # Passer les tableaux sous forme de liste
+  group_header = c("Tableau 1 - Par milieu", "Tableau 2 - Par sexe")
+) %>%
+  modify_header(label ~ "Nom de variables")  # Appliquer après le stacking
+
+# Afficher le tableau empilé
+tbl_stacked
+```
+
+## 4. Personnalisation de l'apparence avec les thèmes gtsummary
+
+Le package gtsummary offre plusieurs thèmes intégrés pour personnaliser l'apparence des tableaux générés, permettant ainsi d'adapter l'affichage en fonction du contexte d'utilisation (publication académique, rapport professionnel, etc.). Ces thèmes influencent l'aspect général du tableau, comme l'espacement, la mise en forme des en-têtes et des colonnes, ainsi que l'agencement des lignes et des bordures.
+
+### a. theme_gtsummary_journal()
+Ce thème permet de suivre le style de publication de revues académiques, avec des options pour choisir parmi plusieurs journaux :
+
+- "jama" (Journal of the American Medical Association)
+
+- "lancet" (The Lancet)
+
+- "nejm" (The New England Journal of Medicine)
+
+- "qjecon" (The Quarterly Journal of Economics)
+
+Exemple d'utilisation :
+
+```{r ThemeGtsummaryJournal, echo=TRUE, eval=TRUE, include=TRUE}
+set_gtsummary_theme(theme_gtsummary_journal("qjecon"))  # Appliquer le thème 
+dataset |> tbl_summary(include = c(hage, hmstat))%>%
+  modify_header(label ~ "Nom de variables") 
+```
+
+### b. theme_gtsummary_compact()
+Ce thème rend les tableaux plus compacts en réduisant la taille de la police et l'espacement des cellules, idéal pour les rapports plus condensés.
+
+Exemple d'utilisation :
+
+```{r ThemeGtsummaryCompact, echo=TRUE, eval=TRUE, include=TRUE}
+set_gtsummary_theme(theme_gtsummary_compact())  # Appliquer le thème 'compact'
+dataset |> tbl_summary(include = c(hage, hmstat))%>%
+  modify_header(label ~ "Nom de variables") 
+```
+
+###  b. Autres thèmes
+
+Thème | Description | Script d'exemple
+|---------|-------------|-------------|
+theme_gtsummary_printer() | Permet de définir le moteur de rendu des tableaux, en choisissant parmi plusieurs options comme gt, kable, flextable, etc. | theme_gtsummary_printer(print_engine = 'flextable', set_theme = TRUE)
+theme_gtsummary_language() | Permet de définir la langue des tableaux générés, avec des traductions disponibles pour plusieurs langues, y compris le français, l'anglais, l'espagnol, etc. | theme_gtsummary_language(language = 'fr', set_theme = TRUE)
+theme_gtsummary_continuous2() | Modifie la présentation des variables continues dans tbl_summary() pour afficher des statistiques comme la médiane et l'intervalle interquartile par défaut. | theme_gtsummary_continuous2(set_theme = TRUE)
+theme_gtsummary_mean_sd() | Définit les statistiques par défaut pour les variables continues sur la moyenne et l'écart-type. | theme_gtsummary_mean_sd(set_theme = TRUE)
+theme_gtsummary_eda() | Ce thème est conçu pour l'exploration des données (EDA) et affiche des statistiques supplémentaires comme la médiane, l'IQ, la moyenne, l'écart-type et la plage. | theme_gtsummary_eda(set_theme = TRUE)
+
+### Remarque :
+
+- set_theme = TRUE : Applique le thème de manière permanente.
+
+- set_theme = FALSE : Retourne les éléments du thème sans l'appliquer.
+
+## 5. Exportation des tableaux vers différents formats
+
+### a. Exportation au format Word (flextable)
+
+```{r chap1exportword, warning=FALSE}
+# Exportation en format flextable (pour Word)
+library(flextable) 
+tbl_summary_flex <- tbl_summary_overall %>%
+  modify_header(label ~ "Nom de variables") %>%
+  as_flex_table() %>%
+  autofit()  # Ajuster automatiquement la largeur des colonnes
+
+# Affichage du tableau flextable
+tbl_summary_flex
+
+# Pour sauvegarder en Word (décommenter pour utiliser)
+library(officer)
+save_as_docx(tbl_summary_flex, path = "./tableaux_exportes/tableau_exporté_chap1.docx")
+#flextable::save_as_html(resultats_flex, path = "./tableaux_exportes/tableau_exporté_chap1.html") # HTML
+message("Le fichier 'tableau_exporté_chap1.docx' a été sauvegardé avec succès !")
+```
+
+### b. Exportation au format HTML (gt)
+
+```{r chap1exporthtml, warning=FALSE}
+# Exportation en format gt (pour HTML)
+library(gt)
+tbl_summary_gt <- tbl_summary_overall %>%
+  modify_header(label ~ "Nom de variables") %>%
+  as_gt() %>%
+  tab_header(
+    title = "Statistiques descriptives de l'EHCVM 2021",
+    subtitle = "Avec nos variables d'intéret"
+  ) %>%
+  tab_options(
+    heading.background.color = "#4E79A7",
+    heading.title.font.size = 18,
+    heading.subtitle.font.size = 14,
+    column_labels.background.color = "#A0CBE8"
+  )
+
+# Affichage du tableau gt
+tbl_summary_gt
+
+# Pour sauvegarder en HTML (décommenter pour utiliser)
+gt::gtsave(tbl_summary_gt, filename = "./tableaux_exportes/tableau_exporté_chap1.html")
+message("Le fichier 'tableau_exporté_chap1.html' a été sauvegardé avec succès !")
+```
+
+
+
+<!---------------------------------------FIN DE SCRIPT - Chapitre 1-------------------------------------------->
+
+
+<!--chapter:end:chapitre-i.-les-principales-fonctions-de-gtsummary.Rmd-->
+
+---
+title: " "
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+
+# CHAPITRE II. APPLICATION PRATIQUE
+
+## 0. Consigne
+
+### Projet :
+Évaluation des politiques de transfert monétaire sur la pauvreté et les inégalités au Burkina Faso, à l’aide des données de l’EHCVM 2021.
+
+### Scénarios simulés :
+- Scénario 1 : Transfert universel — Tous les ménages reçoivent une allocation annuelle de 100 000 CFA.
+- Scénario 2 : Transfert universel rural — Seuls les ménages ruraux reçoivent l’allocation.
+- Scénario 3 : Chef de ménage femme — Transfert ciblé aux ménages dirigés par une femme.
+- Scénario 4 : Chef polygame — Transfert aux ménages dont le chef est polygame.
+- Scénario 5 : Handicap — Transfert aux ménages comprenant un membre en situation de handicap.
+
+
+
+## 1. Chargement des packages nécessaires et des données EHCVM 2021 du Burkina Faso
+
+####  Objectif
+
+Utiliser le package `gtsummary` pour explorer, résumer et mieux comprendre les variables clés.
+
+#### Variables importantes
+
+| Variable | Description |
+|---------|-------------|
+| `pcexp` | Dépense par tête (proxy du revenu) |
+| `hhsize` | Taille du ménage |
+| `milieu` | Milieu de résidence (`urbain` ou `rural`) |
+| `hmstat` | Statut matrimonial du chef de ménage |
+| `hgender` | Sexe du chef de ménage |
+| `zref` | Seuil de pauvreté national |
+| `hhandig` | Présence ou non d'handicapés dans le ménage |
+
+#### Préparation des données
+
+Commençons par charger les bibliothèques nécessaires
+
+```{r Chap2Installpackages, message=FALSE, results='hide'}
+# Chargement des packages nécessaires à l’analyse
+# (Ils seront installés automatiquement s'ils ne sont pas présents)
+
+# Liste des packages
+packages <- c(
+  "readr",      # Pour lire les fichiers de données (CSV, etc.)
+  "dplyr", # Pour manipuler les données (filtrer, grouper, résumer, etc.)
+  "gtsummary",  # Pour créer des tableaux statistiques descriptifs professionnels
+  "flextable",  # Pour formater/exporter des tableaux (Word, PPT, HTML)
+  "gt",         # Pour créer des tableaux visuels modernes et interactifs
+  "ggplot2",    # Pour réaliser des graphiques personnalisés
+  "tidyr", #organiser et transformer les données en un format “tidy”, c’est-à-dire 
+  # Chaque variable dans une colonne, chaque observation dans une ligne, chaque valeur dans une cellule.
+  "ineq",       # Pour mesurer les inégalités (ex. : coefficient de Gini)
+  "kableExtra",  # Pour améliorer les tableaux `knitr::kable()` dans les rapports
+  "officer" # Sauvegarder des tableaux gtsummary en word
+)
+
+# Fonction pour installer les packages manquants
+install_if_missing <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg)
+  }
+}
+
+# Installation au besoin
+invisible(lapply(packages, install_if_missing))
+
+# Chargement des packages
+lapply(packages, library, character.only = TRUE)
+```
+
+#### Lecture du fichier
+
+```{r CreatingDatasetapp, warning=FALSE, message=FALSE, results='hide'}
+library(readr)
+
+# Chargement du jeu de données EHCVM
+dataset <- read_csv("data/ehcvm_welfare_2b_bfa2021.csv")
+vars_interet <- c("hhid", "milieu", "pcexp","hmstat", "hhsize","hhandig", "hgender", "zref")
+datasetapp <- dataset %>% 
+  select(all_of(vars_interet))
+```
+
+## 2. Exploration préliminaire
+#### Aperçu des premières lignes
+
+```{r Chap2Aperculignes, echo=F, warning=FALSE, message=FALSE}
+head(datasetapp)
+#str(datasetapp)
+```
+
+#### Dimensions de la base
+```{r Chap2DimBase, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+dim(datasetapp)
+```
+#### Vérification de la qualité des données
+```{r Chap2DataQuality, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+# Pourcentage de valeurs manquantes
+missing_data <- colSums(is.na(datasetapp)) / nrow(datasetapp) * 100
+# Filtre
+missing_data <- missing_data[missing_data > 0]
+
+# Affichage
+if (length(missing_data) == 0) {
+  cat("Il n'y a pas de valeurs manquantes dans le dataset.\n")
+} else {
+  cat("Pourcentage de valeurs manquantes par variable :\n")
+  print(missing_data)
+}
+
+```
+
+```{r Chap2Duplicates, echo=F, eval=TRUE, warning=FALSE, message=FALSE}
+# Nombre de doublons
+duplicate_count <- nrow(datasetapp[duplicated(datasetapp), ])
+if (duplicate_count == 0) {
+  cat("Il n'y a pas de doublons dans le dataset.\n")
+} else {
+  cat("Il y a", duplicate_count, "doublon(s) dans le dataset.\n")
+}
+```
+
+
+## 3. Proposition de correction du projet
+
+Évaluation des politiques de transfert monétaire sur la pauvreté et les inégalités au Burkina Faso
+
+### Introduction
+
+Les programmes de transfert monétaire constituent une approche de protection sociale de pour lutter contre la pauvreté.
+
+### Méthodologie
+
+#### Analyse descriptive avec gtsummary
+
+- Tableau récapitulatif général
+
+```{r Chap2TabRecapGeneral, echo=F}
+set_gtsummary_theme(theme_gtsummary_compact())  # Appliquer le thème 'compact'
+
+# Tableau récapitulatif avec tbl_summary() pour toutes les variables
+tableau_general <- datasetapp %>%
+  tbl_summary(
+    statistic = list(
+      all_continuous() ~ "{mean} ({sd})",
+      all_categorical() ~ "{n} ({p}%)"
+    ),
+    digits = list(all_continuous() ~ 1),
+    label = list(
+      pcexp ~ "Dépense par tête",
+      hhsize ~ "Taille du ménage",
+      milieu ~ "Milieu de résidence",
+      hmstat ~ "Statut matrimonial",
+      hgender ~ "Sexe du chef de ménage",
+      zref ~ "Seuil de pauvreté",
+      hhandig ~ "Présence de handicapés"
+    ),
+    missing_text = "Données manquantes"
+  ) %>%
+  add_n() %>%  # Ajouter le nombre d'observations
+  bold_labels() %>%  # Mettre les étiquettes en gras
+  italicize_levels() %>% # Mettre les niveaux en italique
+  modify_caption("**Tableau 1. Caractéristiques des ménages burkinabè (EHCVM 2021)**")%>%
+  modify_header(label ~ "Nom de variables") 
+
+
+# Affichage du tableau
+tableau_general
+```
+
+- Exportation du Tableau récapitulatif général au format HTML (gt)
+
+```{r chap2exporthtml, warning=FALSE, echo=FALSE}
+# Exportation en format gt (pour HTML)
+library(gt)
+tbl_recap_gt <- tableau_general %>%
+  as_gt() %>%
+  tab_header(
+    title = "Tableau récapitulatif général ",
+    subtitle = "Au format HTML (gt)"
+  ) %>%
+  tab_options(
+    heading.background.color = "#4E79A7",
+    heading.title.font.size = 18,
+    heading.subtitle.font.size = 14,
+    column_labels.background.color = "#A0CBE8"
+  )
+
+# Affichage du tableau gt
+tbl_recap_gt
+
+# Pour sauvegarder en HTML (décommenter pour utiliser)
+gt::gtsave(tbl_recap_gt, filename = "./tableaux_exportes/tbl_recap_gt_chap2.html")
+message("Le fichier 'tbl_recap_gt_chap2.html' a été sauvegardé avec succès !")
+```
+
+
+#### Situation avant les simulations
+
+```{r Chap2Situationavantsimulation,echo=F,eval=T}
+# Définition du seuil de pauvreté (zref)
+# Création de variables pour l'analyse de la pauvreté
+data_baseline <- datasetapp %>%
+  mutate(
+    pauvre = pcexp < zref,
+    gap = ifelse(pauvre, zref - pcexp, 0),
+    gap_normalise = gap / zref,
+    gap_normalise_carre = gap_normalise^2
+  )
+
+# Calcul des indices FGT initiaux
+fgt0_initial <- sum(data_baseline$pauvre * data_baseline$hhsize) / sum(data_baseline$hhsize)
+fgt1_initial <- sum(data_baseline$gap_normalise * data_baseline$hhsize) / sum(data_baseline$hhsize)
+fgt2_initial <- sum(data_baseline$gap_normalise_carre * data_baseline$hhsize) / sum(data_baseline$hhsize)
+
+# Calcul du coefficient de Gini initial
+gini_initial <- ineq(data_baseline$pcexp, type = "Gini")
+
+# Affichage des indices initiaux
+indices_initiaux <- data.frame(
+  Indicateur = c("Incidence (FGT0)initial", "Profondeur (FGT1)initial", "Sévérité (FGT2)initial", "Giniinitial"),
+  Valeur = c(fgt0_initial, fgt1_initial, fgt2_initial, gini_initial)
+)%>%
+  mutate(Valeur = round(Valeur, 3))
+```
+
+```{r Chap2AffichageIndicesInitiaux,echo=T,eval=T}
+indices_initiaux
+```
+
+*Remarque sur la présentation du tableau précédent*
+
+Le tableau précédent a été présenté sous forme de dataframe car `gtsummary` n’est pas spécifiquement conçu pour afficher des tableaux déjà calculés ligne par ligne. En effet, gtsummary est principalement destiné à résumer des données brutes, notamment via des statistiques descriptives ou des analyses bivariées.
+
+Ainsi, si l'on souhaite présenter de manière élégante des résultats déjà agrégés (tels que des indices FGT ou un coefficient de Gini), il est souvent préférable d’utiliser des packages comme gt() ou flextable(), qui sont plus adaptés à ce type de mise en forme.
+
+```{r Chap2gtsummaisationdedataframes,echo=FALSE,eval=T}
+indices_gt <- indices_initiaux %>%
+  gt() %>%
+  tab_header(
+    title = md("**Tableau – Indices de pauvreté et d'inégalités (Scénario de base)**")
+  ) %>%
+  cols_label(
+    Indicateur = "Indicateur",
+    Valeur = "Valeur"
+  ) %>%
+  fmt_number(
+    columns = "Valeur",
+    decimals = 3
+  )
+
+indices_gt
+```
+
+#### Résultats des simulations
+
+```{r Chap2CalculsIndicesSimules,echo=FALSE,eval=T}
+#library(ineq)
+# Montant du transfert par ménage (annuel)
+montant_transfert <- 100000
+# Fonction pour simuler un transfert et calculer les indices
+simuler_transfert <- function(dataset, condition, nom_scenario) {
+  
+  data_sim <- dataset %>%
+    mutate(
+      beneficiaire = condition,
+      transfert = ifelse(beneficiaire, montant_transfert / hhsize, 0),
+      pcexp_new = pcexp + transfert,
+      pauvre_new = pcexp_new < zref,
+      gap_new = ifelse(pauvre_new, zref - pcexp_new, 0),
+      gap_normalise_new = gap_new / zref,
+      gap_normalise_carre_new = gap_normalise_new^2
+    )
+  
+  # Calcul des indices FGT post-transfert
+  fgt0_new <- sum(data_sim$pauvre_new * data_sim$hhsize) / sum(data_sim$hhsize)
+  fgt1_new <- sum(data_sim$gap_normalise_new * data_sim$hhsize) / sum(data_sim$hhsize)
+  fgt2_new <- sum(data_sim$gap_normalise_carre_new * data_sim$hhsize) / sum(data_sim$hhsize)
+  
+  # Coefficient de Gini post-transfert
+  gini_new <- ineq(data_sim$pcexp_new, type = "Gini")
+  
+  # Coût total du programme
+  cout_total <- sum(data_sim$transfert * data_sim$hhsize)
+  
+  # Réduction du gap de pauvreté
+  efficacite <- sum((dataset$gap - data_sim$gap_new) * data_sim$hhsize) / cout_total
+  
+  return(list(
+    scenario = nom_scenario,
+    fgt0 = fgt0_new,
+    fgt1 = fgt1_new,
+    fgt2 = fgt2_new,
+    gini = gini_new,
+    cout = cout_total,
+    efficacite = efficacite,
+    data = data_sim
+  ))
+}
+
+# Lancement des différents scénarios
+scenario1 <- simuler_transfert(data_baseline, TRUE, "Universel")
+scenario2 <- simuler_transfert(data_baseline, data_baseline$milieu == "Rural", "Rural")
+scenario3 <- simuler_transfert(data_baseline, data_baseline$hgender == "Féminin", "Femme chef")
+scenario4 <- simuler_transfert(data_baseline, data_baseline$hmstat == "Marié(e) polygame", "Polygames")
+scenario5 <- simuler_transfert(data_baseline, data_baseline$hhandig == "Oui", "Handicap")
+```
+
+```{r Chap2ResultatsDesScenariosDansUnSeulTableau,echo=FALSE}
+# Regrouper les résultats des 5 scénarios dans un tableau
+resultats <- tibble::tibble(
+  Scénario = c(
+    scenario1$scenario, scenario2$scenario, scenario3$scenario, scenario4$scenario, scenario5$scenario
+  ),
+  `FGT0 (Incidence)` = c(
+    scenario1$fgt0, scenario2$fgt0, scenario3$fgt0, scenario4$fgt0, scenario5$fgt0
+  ),
+  `FGT1 (Profondeur)` = c(
+    scenario1$fgt1, scenario2$fgt1, scenario3$fgt1, scenario4$fgt1, scenario5$fgt1
+  ),
+  `FGT2 (Sévérité)` = c(
+    scenario1$fgt2, scenario2$fgt2, scenario3$fgt2, scenario4$fgt2, scenario5$fgt2
+  ),
+  `Gini` = c(
+    scenario1$gini, scenario2$gini, scenario3$gini, scenario4$gini, scenario5$gini
+  ),
+  `Coût total (FCFA)` = c(
+    scenario1$cout, scenario2$cout, scenario3$cout, scenario4$cout, scenario5$cout
+  ),
+  `Efficacité` = c(
+    scenario1$efficacite, scenario2$efficacite, scenario3$efficacite, scenario4$efficacite, scenario5$efficacite
+  )
+)
+```
+
+
+*Tableau comparatif des scénarios avec l'option 1 : gt()*
+
+```{r Chap2ComparaisonScenariosAvecgt, echo=FALSE}
+#library(gt)
+
+resultats_gt <- resultats %>%
+  gt() %>%
+  tab_header(
+    title = "Comparaison des scénarios de transfert monétaire",
+    subtitle = "Impact sur la pauvreté et les inégalités"
+  ) %>%
+  fmt_number(columns = starts_with("FGT"), decimals = 3) %>%
+  fmt_currency(columns = `Coût total (FCFA)`, currency = "XOF") %>%
+  fmt_percent(columns = Efficacité, decimals = 3)
+
+resultats_gt
+#gt::gtsave(resultats_gt, filename = "Comparaison_des_scénarios_gt.html")
+```
+
+*Tableau comparatif des scénarios avec l'option 2 : flextable()*
+
+```{r Chap2ComparaisonScenariosAvecflextable, echo=FALSE}
+#library(flextable)
+
+resultats_flex <- flextable(resultats) %>%
+  autofit() %>%
+  set_caption("Comparaison des scénarios de transfert monétaire") 
+
+resultats_flex
+#flextable::save_as_html(resultats_flex, path = "Comparaison_des_scenarios_flextable.html") # HTML
+#flextable::save_as_docx(resultats_flex, path = "Comparaison_des_scenarios_flextable.docx") #en word
+```
+
+Bien que les tableaux permettent une présentation rigoureuse et détaillée des résultats, ils peuvent parfois rendre l’interprétation moins intuitive, surtout pour des publics non spécialisés. Ainsi, afin de mieux visualiser l’impact des différentes politiques de transfert et faciliter la comparaison entre scénarios, des représentations graphiques ont été ajoutées dans la suite.
+Ces graphiques offrent une lecture plus directe et synthétique des principaux résultats, tout en conservant la robustesse analytique présentée dans les tableaux précédents.
+
+#### Comparaison des différents scénarios
+```{r Chap2ComparaisonScenariosAvecggplot2,echo=FALSE,eval=T}
+#library(ggplot2)
+#library(tidyr)
+
+# Regrouper les résultats dans un format long pour faciliter la création de graphiques
+resultats_long <- resultats %>%
+  pivot_longer(cols = c(`FGT0 (Incidence)`, `FGT1 (Profondeur)`, `FGT2 (Sévérité)`, `Gini`, `Coût total (FCFA)`, `Efficacité`),
+               names_to = "Indicateur", values_to = "Valeur")
+
+# Créer un graphique pour chaque indicateur
+ggplot(resultats_long, aes(x = Scénario, y = Valeur, fill = Scénario)) +
+  geom_bar(stat = "identity", position = "dodge") + #dodge : pas empilées (stack), mais placées côte à côte 
+  facet_wrap(~ Indicateur, scales = "free_y") +
+  theme_minimal() +
+  labs(title = "Comparaison des Scénarios selon différents Indicateurs",
+       x = "Scénario",
+       y = "Valeur") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Set3")
+```
+
+#### Conclusion
+
+L'analyse comparative des différents scénarios de transfert monétaire à l'aide du package `gtsummary` nous a permis d'obtenir des résultats clairs et bien présentés. Les principales conclusions sont :
+
+- Le ciblage universel est le plus efficace en termes d’impact brut avec une forte réduction de la pauvreté FGT0 : 0.354 (vs 0.390), FGT1 : 0.099, FGT2 : 0.038, Gini : 0.395,mais cela se fait au prix du coût le plus élevé : 717 600 000 FCFA, pour une efficacité modérée (27.95 %).
+
+- Le ciblage polygame est le plus efficient (Efficacité : 42.96 %, coût : 157 200 000 FCFA),avec une réduction notable des indices  (FGT1 : 0.110 vs 0.116, FGT2 : 0.044).
+
+- Le ciblage rural constitue une stratégie équilibrée avec un impact significatif (FGT1 : 0.103), un coût raisonnable : 383 800 000 FCFA et bonne efficacité : 39.29 %.
+
+Des scénarios combinés comme rural + femme chef ou polygame + présence d'handicapés pourraient permettre une réduction significative de la pauvreté à moindre coût, tout en assurant une meilleure ciblage des plus vulnérables.
+
+
+### Annexe : Définitions et formules
+
+Indices FGT (Foster-Greer-Thorbecke) :
+
+- FGT0 (Incidence) : Proportion de la population vivant sous le seuil de pauvreté
+
+$$FGT_0 = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}(pcexp_i < z)$$
+- FGT1 (Profondeur) : Écart moyen normalisé entre le revenu des pauvres et le seuil de pauvreté
+
+$$FGT_1 = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{z - pcexp_i}{z} \right) \mathbf{1}(pcexp_i < z)$$
+
+- FGT2 (Sévérité) : Moyenne des carrés des écarts normalisés, donnant plus de poids aux plus pauvres
+
+$$FGT_2 = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{z - pcexp_i}{z} \right)^2 \mathbf{1}(pcexp_i < z)$$
+
+Coefficient de Gini : Mesure de l'inégalité de la distribution des revenus au sein d'une hhsizeulation (0 = égalité parfaite, 1 = inégalité maximale)
+
+$$G = \frac{\sum_{i=1}^{N} \sum_{j=1}^{N} |pcexp_i - pcexp_j|}{2 N^2 \bar{pcexp}}$$
+
+où :  
+
+- $N$ est la population totale,  
+
+- $pcexp_i$ est la dépense de consommation par tête du ménage $\( i \)$,  
+
+- $z$ est le seuil de pauvreté,  
+
+- $\mathbf{1}(pcexp_i < z)$ est une fonction indicatrice qui vaut 1 si $pcexp_i < z$, sinon 0,  
+
+- $\bar{pcexp}$ est la moyenne des dépenses de consommation par tête.
+
+- Efficacité du transfert : Ratio entre la réduction du gap de pauvreté et le coût total du programme de transfert
+
+
+
+<!-------------------------------------------FIN DE SCRIPT - Chapitre 2------------------------------------->
+
+<!--chapter:end:chapitre-ii.-applications-pratiques.Rmd-->
+
+---
+title: ""
+author: ""
+date: "24/03/2025"
+output: html_document
+---
+
+# CONCLUSION
+
+Ce projet visait à explorer les possibilités offertes par le package **gtsummary** dans la production de tableaux statistiques professionnels et reproductibles.
+
+Le package *gtsummary* s’est révélé être un outil robuste et convivial, permettant notamment :
+
+- La création de tableaux descriptifs clairs via `tbl_summary()`, facilitant une première exploration des données ;
+
+- La comparaison de sous-populations grâce à l’argument `by=`, utile pour mettre en évidence les inégalités selon le milieu, le genre, etc. ;
+
+- L’organisation cohérente de plusieurs tableaux à l’aide des fonctions `tbl_merge()` et `tbl_stack()`;
+
+- L’amélioration de la lisibilité avec des thèmes personnalisables (par exemple `theme_gtsummary_journal()`) ;
+
+- L’exportation souple vers différents formats de rapports (Word, HTML, etc.) via `as_flex_table()` ou `as_gt()`.
+
+Par ailleurs, pour pallier certaines limites dans la présentation des résultats déjà agrégés, des packages complémentaires comme **gt** ou **flextable** ont été mobilisés, tout comme **ggplot2** pour illustrer visuellement les effets des scénarios simulés.
+
+
+Au-delà de la simple description, **gtsummary** peut également être intégré à une analyse plus poussée, notamment dans la présentation des résultats de modèles statistiques (régressions linéaires/logistiques, modèles mixtes, etc.) avec `tbl_regression()` ;
+
+En somme, ce projet illustre comment un outil bien pensé comme **gtsummary**, combiné à d'autres packages du tidyverse, peut significativement améliorer la rigueur, la transparence et l’esthétique des analyses statistiques.
+
+
+<!---------------------------------------FIN DE SCRIPT - CONCLUSION-------------------------------------------->
+
+<!--chapter:end:conclusion.Rmd-->
+
+---
+title: ""
+author: "Awa D"
+date: "24/03/2025"
+output: html_document
+---
+
+# REFERENCES
+
+La rédaction de ce bookdown sur `gtsummary` s'appuie sur plusieurs ressources officielles et tutoriels détaillés.  
+
+### Documentation officielle et tutoriels  
+- [Documentation complète de gtsummary (CRAN)](https://cran.r-project.org/web/packages/gtsummary/gtsummary.pdf)  
+- [Guide d’utilisation de `tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html)  
+- [Utilisation de gtsummary dans R Markdown](https://www.danieldsjoberg.com/gtsummary/articles/rmarkdown.html)  
+- [Les thèmes de gtsummary](https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html)  
+
+### Autres ressources utiles 
+- [Analyse de données avec gtsummary](https://larmarange.github.io/analyse-R/gtsummary.html)  
+- [Présentation du package sur le blog de RStudio](https://education.rstudio.com/blog/2020/07/gtsummary/)  
+- [Dépôt GitHub officiel de gtsummary](https://github.com/ddsjoberg/gtsummary)
+
+### Liens vers la documentation de chacun des packages utilisés (sauf gtsummary)
+
+|Package | Lien vers documentation|
+|---------|-------------|
+|readr |  https://readr.tidyverse.org / https://cran.r-project.org/package=readr|
+|dplyr |  https://dplyr.tidyverse.org / https://cran.r-project.org/package=dplyr|
+|flextable |  https://davidgohel.github.io/flextable/ / https://cran.r-project.org/package=flextable|
+|gt |  https://gt.rstudio.com/  /  https://cran.r-project.org/package=gt|
+|ggplot2 |  https://ggplot2.tidyverse.org / https://cran.r-project.org/package=ggplot2|
+|tidyr |  https://tidyr.tidyverse.org /  https://cran.r-project.org/package=tidyr|
+|ineq |  https://cran.r-project.org/package=ineq|
+|kableExtra |  https://haozhu233.github.io/kableExtra / https://cran.r-project.org/package=kableExtra|
+|officer |  https://davidgohel.github.io/officer/ /https://cran.r-project.org/package=officer|
+
+
+
+<!-----------------------------------------FIN DE SCRIPT REFERENCES---------------------------------------------->
+
+<!--chapter:end:references.Rmd-->
+

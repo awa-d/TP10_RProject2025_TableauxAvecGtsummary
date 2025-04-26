@@ -61,7 +61,7 @@ Les deux pipes offrent une syntaxe fluide et lisible. La différence majeure ré
 ## 1. Utilisation des arguments de la fonction tbl_summary()
 
 **Description :**  
-`Cette fonction peut prendre, au minimum, un data frame comme seul argument d'entrée et renvoie, dans ce cas, des statistiques descriptives pour chaque colonne du data frame.
+Cette fonction peut prendre, au minimum, un data frame comme seul argument d'entrée et renvoie, dans ce cas, des statistiques descriptives pour chaque colonne du data frame.
 ```{r Chap1ImportDataset, echo=FALSE,warning=FALSE}
 
 # IMPORTATION

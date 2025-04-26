@@ -10,10 +10,12 @@ Ce rapport s’inscrit dans le cadre d'une présentation sanctionnant la fin du 
 À l’issue de ce cours, il nous a été demandé de travailler sur les tableaux avec gtsummary, en mobilisant les connaissances acquises.  
 
 Ici, nous ne nous arrêterons pas uniquement aux codes, mais nous appliquerons les règles d'un bon script, notamment :  
+
 - Utilisation de références relatives pour un code bien structuré.  
+
 - Commentaires clairs pour expliquer chaque section du code et noms de chunks explicite.  
 - Illustrations avec des exemples concrets pour faciliter la compréhension.
-- 
+
 - Rédaction du rapport avec Bookdown, insertion de formules mathématiques, des applications issues des précédents TPs. 
 
 L'objectif principal est d'appliquer au mieux les connaissances acquises au cours du semestre.  
